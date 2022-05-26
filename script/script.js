@@ -34,8 +34,8 @@ var nameInput = profileFormElement.querySelector(".input-name")
 var jobInput =  profileFormElement.querySelector(".input-career")
 
 // find the form fields in the DOM
-var profileName = body.querySelector(".profile__info_name") 
-var profileJob = body.querySelector(".profile__info_career")
+var profileName = body.querySelector(".profile__info-name") 
+var profileJob = body.querySelector(".profile__info-career")
 
 // the form submission handler. Note that its name 
 // starts with a verb and concisely describes what it does
