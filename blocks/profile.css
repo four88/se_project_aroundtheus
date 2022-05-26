@@ -57,7 +57,6 @@
 }
 
 .button_edit{
-    grid-area: button_edit;
     width: 25px;
     height: 25px;
     border: 1px solid #FFFFFF;
@@ -111,7 +110,7 @@ transition-duration: 0.3s;
         flex-direction: row;
         margin: 0;
         justify-content: center;
-        margin-top: 26.25px ;
+        margin-top: 26.25px;
     }
 
     .button_add{
