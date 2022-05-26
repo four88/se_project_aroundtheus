@@ -3,14 +3,29 @@
 ### Overview
 
 * Figma
-* Images
+* Intro
+* Project description
+* Technology stack
 
 **Figma**
 
 * [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
 
-**Images**
+  
+**Intro**    
+  
+This is a project that showcases the hometowns of some of Practicum's employees. We've made it so all the elements are displayed correctly on popular screen sizes.
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+**Project description**
 
-Have fun with JavaScript!
+This project is for learning about adaptive web design and working with layouts. For developing website cross platform in this project focus on both platform Desktop and mobile version. Moreover, this project also learning on basic of javascript and DOM methodology.
+
+**Technology that I used in this Project**
+* BEM methodology
+* Media queries
+* grid layout
+* flexbox
+* Javascript
+* DOM methodology
+
+The link of this project : [Click here](https://four88.github.io/se_project_aroundtheus/)
