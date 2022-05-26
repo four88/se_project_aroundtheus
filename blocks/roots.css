@@ -1,0 +1,55 @@
+* {
+    box-sizing:border-box;
+}
+.body{
+    background-color: black;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+}
+
+.overlay-on{
+    width: 100%;
+    z-index: 9;
+    position:absolute;
+    height: 100vmax;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+
+.page{
+    max-width: 880px;
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+    margin: 0 auto;
+    color:white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 900px){
+
+    .page{
+        max-width: 600px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+
+    .page{
+        max-width: 320px;
+    }
+    
+}
+
+
+@media screen and (max-width: 320px) {
+    
+    .page{
+        max-width: 282px;
+    }
+}

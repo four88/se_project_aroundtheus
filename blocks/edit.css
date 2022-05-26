@@ -1,0 +1,160 @@
+.edit{
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    height: 100vh;
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+}
+
+.edit_closed{
+    display: none;
+}
+
+.edit__box{
+    box-sizing: border-box;
+    width: 430px;
+    position:relative;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+.edit__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit__title{
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.813rem;
+    color: #000000;
+    margin: 0;
+    margin-top: 34px;
+}
+
+.input{
+    border-style: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding-bottom: 13.34px;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.input-career{
+    margin-top: 29.74px;
+    margin-bottom: 48px;
+}
+
+.input-name{
+    margin-top: 54px;
+}
+
+.edit__button{
+    height: 50.15px;
+    border-style: none;
+    border-radius: 2px;
+    background-color: #000000;
+    color: white;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    text-align: center;
+    margin-bottom: 36.51px;
+    transition-duration: 0.2s;
+}
+
+.edit__button:hover{
+    opacity: 0.8;
+}
+
+.edit__close{
+    position: absolute;
+    z-index: 11;
+    height: 40px;
+    top: -45px;
+    right: -45px;
+    transition-duration: 0.2s;
+}
+
+
+.edit__close:hover{
+    opacity:0.6;
+}
+
+
+
+@media screen and (max-width: 500px){
+
+    .edit__box{
+        width: 320px;
+    }
+    
+    .edit__close{
+        height: 26px;
+        top: calc(-13.32px - 26px);
+        right: 0px;
+        transition-duration: 0.2s;
+    }
+
+    .edit__title{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 320px){
+
+    
+    .edit__box{
+        width: 282px;
+        padding-left: 22px;
+        padding-right: 22px;
+        
+    }
+
+    .edit__title{
+        font-weight: 900;
+        font-size: 1.125rem;
+        line-height: 1.563rem;
+        margin-top: 1.563rem;
+    }
+
+    .input{
+        font-weight: 400;
+        font-size:0.875rem;
+        line-height: 1.063rem;
+        padding-bottom: 13px;
+    }
+    
+    .input-career{
+        margin-top: 30px;
+        margin-bottom: 45px;
+    }
+    
+    .input-name{
+        margin-top: 54px;
+    }
+
+    .edit__button{
+        height: 46px;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.063rem;
+        text-align: center;
+        margin-bottom: 25px;
+        transition-duration: 0.2s;
+    }
+
+    
+}
+
