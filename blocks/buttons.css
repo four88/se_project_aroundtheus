@@ -1,4 +1,4 @@
-.button__edit{
+.button-edit{
     width: 25px;
     height: 25px;
     border: 1px solid #FFFFFF;
@@ -13,11 +13,11 @@
 
 }
 
-.button__edit:hover{
+.button-edit:hover{
     opacity: 0.6;
 }
 
-.button__add{
+.button-add{
     width: 150px;
     height: 50px;
     border: 2px solid #FFFFFF;
@@ -34,11 +34,11 @@
     }
     
     
-    .button__add:hover{
+    .button-add:hover{
         opacity:0.6;
     }
 
-    .button__submit{
+    .button-submit{
         height: 50.15px;
         border-style: none;
         border-radius: 2px;
@@ -52,11 +52,11 @@
         transition-duration: 0.2s;
     }
     
-    .button__submit:hover{
+    .button-submit:hover{
         opacity: 0.8;
     }
     
-    .button__closed{
+    .button-closed{
         z-index: 11;
         height: 40px;
         align-self: flex-start;
@@ -65,7 +65,7 @@
     }
     
     
-    .button__closed:hover{
+    .button-closed:hover{
         opacity:0.6;
     }
     
@@ -81,7 +81,7 @@
 }
 
 @media screen and (max-width: 500px){
-    .button__closed{
+    .button-closed{
         height: 26px;
         transition-duration: 0.2s;
         margin: 0;
@@ -91,17 +91,17 @@
 
 
 @media screen and (max-width: 320px){
-    .button__edit{
+    .button-edit{
         width:18px;
         height: 18px;
     }
 
-    .button__add{
+    .button-add{
         margin-top: 36px;
     }
 
 
-        .button__submit{
+        .button-submit{
         height: 46px;
         font-weight: 400;
         font-size: 0.875rem;
