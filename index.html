@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Around the US</title>
-    <link rel="stylesheet" href="./page/index.css">
+    <link rel="stylesheet" href="./pages/index.css">
     
 </head>
 <body class= "body">
@@ -13,16 +13,18 @@
     <!-- insert edit profile -->
     <div class="overlay">
     <div class="edit edit_closed"> 
-        
+    
+    <div class="edit__container">
+    <img src="./images/Close_icon.svg" alt="close icon" class="button__closed">    
     <div class="edit__box">
             <form class="edit__form">
                 <h2 class="edit__title">Edit Profile</h2>
-                <img src="./images/Close_icon.svg" alt="close icon" class="edit__close">
                 <input type="text" class="input input-name" placeholder="fdas">
                 <input type="text" class="input input-career" placeholder="fdas">
-                <button type="submit" class="edit__button">Save</button>
+                <button type="submit" class="button__submit">Save</button>
             </form>
         </div>
+    </div>      
     </div>
     </div>
 
@@ -37,16 +39,65 @@
             <div class="profile__info">
                 <div class="profile__info-wrap">
                     <h1 class="profile__info-name">Pharanyu Chuenjit</h1>
-                    <button class="button button_edit"></button>
+                    <button class="button button__edit"></button>
                     <h3 class="profile__info-career">Developer</h3>
                 </div>
                 
             </div>
-            <button class="button button_add"></button>
+            <button class="button button__add"></button>
         </section>
 
         <section class="elements">
-            <!-- insert element from script here -->
+
+            <div class="element">
+                <img src="images/element_yoesmith.jpg" alt= "yoesmith" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Yosemite Valley</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="images/element_lake.jpg" alt= "Lake Louise" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Lake Louise</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="images/element_bald.jpg" alt= "bald moutains" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Bald Mountains</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="images/element_latemar.jpg" alt= "Latemar" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Latemar</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="images/element_vanoise.jpg" alt= "vanoise national park" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Vanoise National Park</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="images/elemet_lago.jpg" alt= "lago di braies" class="element__pic">
+                <div class="element__name">
+                    <p class="element__title">Lago di Braies</p>
+                    <img src="./images/icon.svg" alt="icon" class="element__icon">
+                </div>
+            </div>
+
+
 
         </section>
 
@@ -56,6 +107,7 @@
 
     </main>
 </div>
+<!-- script file -->
 <script src="./script/script.js"></script>
 </body>
 </html>
