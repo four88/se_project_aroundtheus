@@ -2,24 +2,24 @@
 
 var body = document.querySelector(".body");
 
-var editBtn = body.querySelector(".button__edit");
+var editBtn = body.querySelector(".button_edit");
 
 var edit = body.querySelector(".edit") 
 
-var closeBtn = edit.querySelector(".button__closed")
+var closeBtn = edit.querySelector(".button_closed")
 
 var overlay = body.querySelector(".overlay")
 
 function showForm() { 
     edit.classList.remove("edit_closed")
-    overlay.classList.add("overlay-on")
+    overlay.classList.add("overlay_on")
     nameInput.placeholder = profileName.textContent
     jobInput.placeholder = profileJob.textContent
 }
 
 function closeForm() {
     edit.classList.add("edit_closed")
-    overlay.classList.remove("overlay-on")
+    overlay.classList.remove("overlay_on")
     
 }
 
@@ -30,12 +30,12 @@ closeBtn.addEventListener("click", closeForm);
 var profileFormElement = edit.querySelector(".edit__form") // Use the querySelector() method
 
 // find the form fields in the DOM
-var nameInput = profileFormElement.querySelector(".input-name")
-var jobInput =  profileFormElement.querySelector(".input-career")
+var nameInput = profileFormElement.querySelector(".input_name")
+var jobInput =  profileFormElement.querySelector(".input_career")
 
 // find the form fields in the DOM
-var profileName = body.querySelector(".profile__info-name") 
-var profileJob = body.querySelector(".profile__info-career")
+var profileName = body.querySelector(".profile__info_name") 
+var profileJob = body.querySelector(".profile__info_career")
 
 // the form submission handler. Note that its name 
 // starts with a verb and concisely describes what it does

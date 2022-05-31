@@ -29,7 +29,7 @@
     padding-right: 15px;
     flex-direction: row;
     justify-content: space-between;
-    position: relative;
+    
 }
     
 
@@ -50,7 +50,6 @@
     grid-area: name;
     width: 21px;
     transition-duration: 0.2s;
-    position: absolute;
     right:18px;
     top:30px;
 }

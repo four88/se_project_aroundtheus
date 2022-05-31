@@ -6,5 +6,6 @@
 @import url(../blocks/elements.css);
 @import url(../blocks/element.css);
 @import url(../blocks/footer.css);
-@import url(../blocks/edit.css);
+@import url(../blocks/popup/edit.css);
+@import url(../blocks/popup/overlay.css);
 @import url(../blocks/buttons.css);

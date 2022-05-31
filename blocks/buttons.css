@@ -1,7 +1,7 @@
-.button-edit{
+.button_edit{
     width: 25px;
     height: 25px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid hsl(0, 0%, 100%);
     box-sizing: border-box;
     background-color: black;
     background-image: url('../images/edited_button.svg');
@@ -13,11 +13,11 @@
 
 }
 
-.button-edit:hover{
+.button_edit:hover{
     opacity: 0.6;
 }
 
-.button-add{
+.button_add{
     width: 150px;
     height: 50px;
     border: 2px solid #FFFFFF;
@@ -34,11 +34,11 @@
     }
     
     
-    .button-add:hover{
+    .button_add:hover{
         opacity:0.6;
     }
 
-    .button-submit{
+    .button_submit{
         height: 50.15px;
         border-style: none;
         border-radius: 2px;
@@ -52,11 +52,11 @@
         transition-duration: 0.2s;
     }
     
-    .button-submit:hover{
+    .button_submit:hover{
         opacity: 0.8;
     }
     
-    .button-closed{
+    .button_closed{
         z-index: 11;
         height: 40px;
         align-self: flex-start;
@@ -65,14 +65,14 @@
     }
     
     
-    .button-closed:hover{
+    .button_closed:hover{
         opacity:0.6;
     }
     
 
 @media screen and (max-width: 900px) {
 
-    .button__add{
+    .button_add{
         width: 100%;
         margin-top: 36px;
         position: relative;
@@ -81,7 +81,7 @@
 }
 
 @media screen and (max-width: 500px){
-    .button-closed{
+    .button_closed{
         height: 26px;
         transition-duration: 0.2s;
         margin: 0;
@@ -91,17 +91,17 @@
 
 
 @media screen and (max-width: 320px){
-    .button-edit{
+    .button_edit{
         width:18px;
         height: 18px;
     }
 
-    .button-add{
+    .button_add{
         margin-top: 36px;
     }
 
 
-        .button-submit{
+        .button_submit{
         height: 46px;
         font-weight: 400;
         font-size: 0.875rem;
