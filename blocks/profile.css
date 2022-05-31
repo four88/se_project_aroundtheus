@@ -23,7 +23,7 @@
 
 }
 
-.profile__info_wrap{
+.profile__info-wrap{
     display: grid;
     flex-direction: row;
     align-items: baseline;
@@ -39,7 +39,7 @@
 
 
 
-.profile__info_name{
+.profile__info-name{
     margin:0;
     font-size: 42px;
     line-height: 114%;
@@ -47,7 +47,7 @@
     grid-area: name;
 }
 
-.profile__info_career{
+.profile__info-career{
     margin:0;
     font-weight: 400;
     font-size: 18px;
@@ -75,13 +75,13 @@
     }
 
 
-    .profile__info_career{
+    .profile__info-career{
         text-align: center;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .profile__info_name{
+    .profile__info-name{
         font-weight: 500;
         font-size: 1.675rem;
         line-height: 1.788rem;
@@ -97,13 +97,13 @@
         row-gap: 14px;
     }
     
-    .profile__info_wrap{
+    .profile__info-wrap{
         column-gap: 10px;
         row-gap: 14px;
 
     }
 
-    .profile__info_name{
+    .profile__info-name{
         font-weight: 500;
         font-size: 1.375rem;
         line-height: 1.688rem;
@@ -112,7 +112,7 @@
 
 
 
-    .profile__info_career{
+    .profile__info-career{
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
