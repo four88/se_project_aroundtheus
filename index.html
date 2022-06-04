@@ -11,22 +11,22 @@
 <body class= "body">
     
     <!-- insert edit profile -->
-    <div class="overlay">
+    
     <div class="edit edit_closed"> 
     
     <div class="edit__container">
-    <img src="./images/Close_icon.svg" alt="close icon" class="button button_closed">    
+    <img src="./images/Close_icon.svg" alt="close icon" class="edit__button_closed">    
     <div class="edit__box">
             <form class="edit__form">
                 <h2 class="edit__title">Edit Profile</h2>
-                <input type="text" class="input input_name" placeholder="fdas">
-                <input type="text" class="input input_career" placeholder="fdas">
-                <button type="submit" class="button button_submit">Save</button>
+                <input type="text" class="edit__input edit__input_name" placeholder="Your name">
+                <input type="text" class="edit__input edit__input_career" placeholder="Your career">
+                <button type="submit" class="edit__button">Save</button>
             </form>
         </div>
     </div>      
     </div>
-    </div>
+    
 
     <div class="page">
     <header class="header">
@@ -35,16 +35,18 @@
     </header>
     <main>
         <section class="profile">
-            <img src="./images/profile.jpg" alt="profile img" class="profile__img">
+            
+                <img src="./images/profile.jpg" alt="profile img" class="profile__img">
+            
             <div class="profile__info">
                 <div class="profile__info-wrap">
                     <h1 class="profile__info-name">Pharanyu Chuenjit</h1>
-                    <button class="button button_edit"></button>
+                    <button class="profile__button_edit"></button>
                     <h3 class="profile__info-career">Developer</h3>
                 </div>
+                <button class="profile__button"></button>
                 
             </div>
-            <button class="button button_add"></button>
         </section>
 
         <section class="elements">

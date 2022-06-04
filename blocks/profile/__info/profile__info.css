@@ -1,0 +1,33 @@
+
+.profile__info{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    grid-area: info;
+
+}
+
+
+@media screen and (max-width: 900px) {
+    
+
+    .profile__info{
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 0;
+        justify-content: center;
+        margin-top: 26.25px;
+    }
+}
+
+
+@media screen and (max-width: 320px){
+    .profile__info{
+        width: 100%;
+        row-gap: 14px;
+    }
+}

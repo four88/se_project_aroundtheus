@@ -1,0 +1,11 @@
+.element__name{
+    grid-area: name;
+    width: 100%;
+    display:flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+    

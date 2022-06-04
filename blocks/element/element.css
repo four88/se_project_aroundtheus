@@ -1,0 +1,13 @@
+.element{
+    width:282px;
+    height: 361px;
+    display: grid;
+    grid-template-rows: 282px auto;
+    background-color: white;
+    border-radius: 10px;
+    grid-template-areas:
+    "pic"
+    "name";
+    
+}
+

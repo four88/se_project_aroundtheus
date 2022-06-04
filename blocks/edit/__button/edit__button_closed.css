@@ -1,0 +1,26 @@
+
+    .edit__button_closed{
+        z-index: 11;
+        height: 40px;
+        align-self: flex-start;
+        margin-top: -45px;
+        transition-duration: 0.2s;
+    }
+    
+    
+    .edit__button_closed:hover{
+        opacity:0.6;
+    }
+    
+
+
+
+@media screen and (max-width: 500px){
+    .edit__button_closed{
+        height: 26px;
+        transition-duration: 0.2s;
+        margin: 0;
+        align-self: flex-end;
+    }
+}
+

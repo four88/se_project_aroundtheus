@@ -1,0 +1,19 @@
+.profile{
+    display: grid;
+    grid-template-columns: 120px auto;
+    grid-template-rows: 120px;
+    column-gap:30px;
+    grid-template-areas: 
+    "pic info";
+}
+
+@media screen and (max-width: 900px) {
+    
+    .profile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}

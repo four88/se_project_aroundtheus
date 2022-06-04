@@ -1,0 +1,23 @@
+.edit{
+    width: 100%;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: 'Inter',Arial, Helvetica, sans-serif;
+    font-style:  normal;
+    font-weight: 500;
+    
+}
+
+
+@media screen and (max-width: 500px){
+
+    .edit{
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+}
+

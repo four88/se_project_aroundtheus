@@ -1,0 +1,21 @@
+.element__icon{
+    grid-area: name;
+    width: 21px;
+    transition-duration: 0.2s;
+    right:18px;
+    top:30px;
+}
+
+.element__icon:hover{
+    opacity: 0.5;
+}
+
+.element__icon:active{
+    background-image: url(../../../images/active_button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity:1;
+    transition-duration: 0.0s;
+
+    
+}
