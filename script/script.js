@@ -2,11 +2,11 @@
 
 var body = document.querySelector(".body");
 
-var editBtn = body.querySelector(".profile__button_edit");
+var editBtn = body.querySelector(".profile__button-edit");
 
 var edit = body.querySelector(".edit") 
 
-var closeBtn = edit.querySelector(".edit__button_closed")
+var closeBtn = edit.querySelector(".edit__button-closed")
 
 
 

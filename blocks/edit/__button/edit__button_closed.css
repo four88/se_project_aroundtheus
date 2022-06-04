@@ -1,5 +1,5 @@
 
-    .edit__button_closed{
+    .edit__button-closed{
         z-index: 11;
         height: 40px;
         align-self: flex-start;
@@ -8,7 +8,7 @@
     }
     
     
-    .edit__button_closed:hover{
+    .edit__button-closed:hover{
         opacity:0.6;
     }
     
@@ -16,7 +16,7 @@
 
 
 @media screen and (max-width: 500px){
-    .edit__button_closed{
+    .edit__button-closed{
         height: 26px;
         transition-duration: 0.2s;
         margin: 0;
