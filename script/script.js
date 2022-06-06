@@ -12,14 +12,14 @@ var closeBtn = edit.querySelector(".edit__button-closed")
 
 function showForm() { 
     edit.classList.remove("edit_closed")
-    edit.classList.add("edit__overlay_on")
+
     nameInput.value = profileName.textContent
     jobInput.value = profileJob.textContent
 }
 
 function closeForm() {
     edit.classList.add("edit_closed")
-    overlay.classList.remove("overlay_on")
+    
     
 }
 
@@ -30,8 +30,8 @@ closeBtn.addEventListener("click", closeForm);
 var profileFormElement = edit.querySelector(".edit__form") // Use the querySelector() method
 
 // find the form fields in the DOM
-var nameInput = profileFormElement.querySelector(".edit__input_name")
-var jobInput =  profileFormElement.querySelector(".edit__input_career")
+var nameInput = profileFormElement.querySelector(".edit-input_name")
+var jobInput =  profileFormElement.querySelector(".edit-input_career")
 
 // find the form fields in the DOM
 var profileName = body.querySelector(".profile__info-name") 
@@ -46,8 +46,7 @@ function handleProfileFormSubmit(evt) {
     profileName.textContent = nameInput.value 
     profileJob.textContent = jobInput.value 
 
-    nameInput.value = ""
-    jobInput.value = ""
+
     closeForm();
 }
 

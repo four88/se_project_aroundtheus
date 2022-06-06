@@ -1,0 +1,23 @@
+.profile__info-wrap{
+    display: grid;
+    flex-direction: row;
+    align-items: baseline;
+    align-self: flex-end;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "name btn"
+    "career career";
+    row-gap: 16px;
+    column-gap: 18px;
+}
+
+
+@media screen and (max-width: 350px){
+    
+    .profile__info-wrap{
+        column-gap: 10px;
+        row-gap: 14px;
+
+    }
+}

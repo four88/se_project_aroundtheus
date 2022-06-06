@@ -1,0 +1,7 @@
+.element__icon{
+    grid-area: name;
+    margin: 0;
+    border: none;
+    background: none;
+    padding:0;
+}

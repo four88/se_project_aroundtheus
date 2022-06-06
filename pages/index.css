@@ -2,46 +2,46 @@
 
 @import url(../fonts/fonts.css);
 
-@import url(../blocks/roots/roots.css);
+@import url(../blocks/page.css);
+@import url(../blocks/body.css);
 
-@import url(../blocks/header/header.css);
-@import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
+@import url(../blocks/header.css);
+@import url(../blocks/header__logo.css);
+@import url(../blocks/header__line.css);
 
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__img/profile__img.css);
-@import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__info/__info-career/profile__info-career.css);
-@import url(../blocks/profile/__info/__info-name/profile__info-name.css);
-@import url(../blocks/profile/__info/__info-wrap/profile__info-wrap.css);
-@import url(../blocks/profile/__button/profile__button.css);
-
-
-@import url(../blocks/elements/elements.css);
-
-@import url(../blocks/element/element.css);
-@import url(../blocks/element/__icon/element__icon.css);
-@import url(../blocks/element/__name/element__name.css);
-@import url(../blocks/element/__pic/element__pic.css);
-@import url(../blocks/element/__title/element__title.css);
-
-@import url(../blocks/footer/footer.css);
-@import url(../blocks/footer/__copyright/footer__copyright.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/profile__img.css);
+@import url(../blocks/profile__info.css);
+@import url(../blocks/profile__info-career.css);
+@import url(../blocks/profile__info-name.css);
+@import url(../blocks/profile__info-wrap.css);
+@import url(../blocks/profile__button.css);
 
 
-@import url(../blocks/edit/edit.css);
-@import url(../blocks/edit/__button/edit__button.css);
-@import url(../blocks/edit/__button/edit__button_closed.css);
-@import url(../blocks/edit/__box/edit__box.css);
-@import url(../blocks/edit/__container/edit__container.css);
-@import url(../blocks/edit/__form/edit__form.css);
-@import url(../blocks/edit/__input/edit__input.css);
-@import url(../blocks/edit/__overlay/edit__overlay_on.css);
-@import url(../blocks/edit/__title/edit__title.css);
-@import url(../blocks/edit/_closed/edit_closed.css);
+@import url(../blocks/elements.css);
+
+@import url(../blocks/element.css);
+@import url(../blocks/element__icon.css);
+@import url(../blocks/element__name.css);
+@import url(../blocks/element__pic.css);
+@import url(../blocks/element__title.css);
+@import url(../blocks/element__icon-img.css);
+
+
+@import url(../blocks/footer.css);
+@import url(../blocks/footer__copyright.css);
+
+
+@import url(../blocks/edit.css);
+@import url(../blocks/edit__button.css);
+@import url(../blocks/edit__button_closed.css);
+@import url(../blocks/edit__container.css);
+@import url(../blocks/edit__form.css);
+@import url(../blocks/edit__input.css);
+@import url(../blocks/edit__overlay_on.css);
+@import url(../blocks/edit__title.css);
+@import url(../blocks/edit_closed.css);
+@import url(../blocks/edit__closed_icon.css);
 
 
 
-@import url(../blocks/popup/overlay.css);
-
-@import url(../blocks/buttons/buttons.css);
