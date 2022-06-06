@@ -1,12 +1,12 @@
 // work with show and close edit form
 
-var body = document.querySelector(".body");
+const body = document.querySelector(".body");
 
-var editBtn = body.querySelector(".profile__button-edit");
+const editBtn = body.querySelector(".profile__button-edit");
 
-var edit = body.querySelector(".edit") 
+const edit = body.querySelector(".edit") 
 
-var closeBtn = edit.querySelector(".edit__button-closed")
+const closeBtn = edit.querySelector(".edit__button-closed")
 
 
 
@@ -27,15 +27,15 @@ editBtn.addEventListener("click", showForm);
 closeBtn.addEventListener("click", closeForm);
 
 // find the form in the DOM
-var profileFormElement = edit.querySelector(".edit__form") // Use the querySelector() method
+const profileFormElement = edit.querySelector(".edit__form") // Use the querySelector() method
 
 // find the form fields in the DOM
-var nameInput = profileFormElement.querySelector(".edit-input_name")
-var jobInput =  profileFormElement.querySelector(".edit-input_career")
+const nameInput = profileFormElement.querySelector(".edit-input_name")
+const jobInput =  profileFormElement.querySelector(".edit-input_career")
 
 // find the form fields in the DOM
-var profileName = body.querySelector(".profile__info-name") 
-var profileJob = body.querySelector(".profile__info-career")
+const profileName = body.querySelector(".profile__info-name") 
+const profileJob = body.querySelector(".profile__info-career")
 
 // the form submission handler. Note that its name 
 // starts with a verb and concisely describes what it does
