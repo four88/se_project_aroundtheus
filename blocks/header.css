@@ -14,6 +14,15 @@
 }
 
 
+.header__logo{
+    width: 173px;
+    height: 33px;
+    
+}
+
+
+
+
 
 
 
@@ -26,5 +35,10 @@
         padding-top: 28px;
     }
     
+    .header__logo{
+        width: 126px;
+        height: 24px;
+        margin-left: 27px;
+    }
 
 }    
