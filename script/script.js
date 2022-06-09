@@ -30,8 +30,8 @@ closeBtn.addEventListener("click", closeForm);
 const profileFormElement = edit.querySelector(".edit__form") // Use the querySelector() method
 
 // find the form fields in the DOM
-const nameInput = profileFormElement.querySelector(".edit-input_name")
-const jobInput =  profileFormElement.querySelector(".edit-input_career")
+const nameInput = profileFormElement.querySelector(".edit__input_type_name")
+const jobInput =  profileFormElement.querySelector(".edit__input_type_career")
 
 // find the form fields in the DOM
 const profileName = body.querySelector(".profile__info-name") 

@@ -38,6 +38,10 @@
     line-height: 114%;
     font-weight: 500;
     grid-area: name;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
 }
 
 
@@ -47,6 +51,10 @@
     font-size: 18px;
     line-height: 22px;
     grid-area: career;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
 
 }
 
@@ -66,7 +74,7 @@
     border: 1px solid hsl(0, 0%, 100%);
     box-sizing: border-box;
     background-color: black;
-    background-image: url('../../../images/edited_button.svg');
+    background-image: url('../images/edited_button.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size:auto;
@@ -87,7 +95,7 @@
     box-sizing: border-box;
     border-radius: 2px;
     background-color: black;
-    background-image: url('../../../images/add_button.svg');
+    background-image: url('../images/add_button.svg');
     background-position: center;
     background-repeat: no-repeat;
     align-self: center;
@@ -138,11 +146,13 @@
         font-size: 1.675rem;
         line-height: 1.788rem;
         text-align: center;
+        max-width: 200px;
     }
 
 
     .profile__info-career{
         text-align: center;
+        max-width: 200px;
     }
 
 
@@ -165,6 +175,7 @@
         font-weight: 500;
         font-size: 1.375rem;
         line-height: 1.688rem;
+        max-width: 200px;
 
     }
 
@@ -172,6 +183,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
+        max-width: 200px;
         
     }
     
