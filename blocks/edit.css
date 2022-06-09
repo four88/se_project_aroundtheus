@@ -165,19 +165,19 @@
         margin-top: 1.563rem;
     }
 
-    .edit-input{
+    .edit__input{
         font-weight: 400;
         font-size:0.875rem;
         line-height: 1.063rem;
         padding-bottom: 13px;
     }
     
-    .edit-input_career{
+    .edit__input_type_career{
         margin-top: 30px;
         margin-bottom: 45px;
     }
     
-    .edit-input_name{
+    .edit__input_type_name{
         margin-top: 54px;
     }
 
