@@ -1,12 +1,13 @@
 .element{
     box-sizing:border-box;
-    max-width:282px;
+    width:282px;
     display: grid;
     grid-template-rows: 282px auto;
     background-color: white;
     border-radius: 10px;
+    position: relative;
     grid-template-areas:
-    "pic"
+    "pic "
     "name";
     
 }
@@ -19,6 +20,7 @@
     background-repeat: no-repeat;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
+    
 }
 
 
@@ -59,7 +61,7 @@
     opacity: 0.5;
 }
 
-.element__icon-img:active{
+.element__icon-img_active{
     background-image: url(../../../images/active_button.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -75,3 +77,24 @@
     padding:0;
 }
 
+.element__delete{
+    grid-area: pic;
+    background: url(../images/delete_icon.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 5;
+    height: 18px;
+    width: 18px;
+    border: none;
+    right: 15px;
+    top: 18px;
+    box-sizing: border-box;
+    transition-duration: 0.2s;
+
+}
+
+.element__delete:hover{
+    opacity: 0.6;
+}

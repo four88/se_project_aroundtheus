@@ -11,7 +11,6 @@
 <body class= "body">
     
     <!-- insert edit profile -->
-    
     <div class="edit edit_closed"> 
     
     <div class="edit__container">
@@ -24,10 +23,41 @@
                 <button type="submit" class="edit__button">Save</button>
             </form>
         
-    </div>      
     </div>
-    
+    </div>
 
+    <!-- for add form -->
+    <div class="add add_closed"> 
+    
+        <div class="add__container">
+        <button type="button" class="add__button-closed"></button>    
+        
+                <form class="add__form" name="addForm">
+                    <h2 class="add__title">New place</h2>
+                    <input type="text" name="inputTitle" class="add__input add__input_type_title" placeholder="Your place">
+                    <input type="text" name="inputLink" class="add__input add__input_type_link" placeholder="Your image link">
+                    <button type="submit" class="add__button">create</button>
+                </form>
+            
+        </div>      
+
+    </div>
+
+    <!-- for show big picture  -->
+    <div class="pic pic__closed">
+
+        <!-- <template class="pic__template"> -->
+            <div class="pic__container">
+                <button type="button" class="pic__button-closed"></button>    
+                <img src="./images/element_bald.jpg" alt="" class="pic__img">
+                <h2 class="pic__title">dsaff</h2>
+            </div>
+        <!-- </template> -->
+
+    </div>
+
+
+    
     <div class="page">
 
     <header class="header">
@@ -52,66 +82,18 @@
 
         <section class="elements">
 
+        <template class="element-template">
             <div class="element">
-                <img src="images/element_yoesmith.jpg" alt= "yoesmith" class="element__pic">
+                <button class="element__delete"></button>
+                <img src="" alt= "" class="element__pic">
                 <div class="element__name">
-                    <h2 class="element__title">Yosemite Valley</h2>
+                    <h2 class="element__title"></h2>
                     <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
+                        <img src="../images/icon.svg" alt="element icon heart" class="element__icon-img">
                     </button>
                 </div>
             </div>
-
-            <div class="element">
-                <img src="images/element_lake.jpg" alt= "Lake Louise" class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title">Lake Louise</h2>
-                    <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="images/element_bald.jpg" alt= "bald moutains" class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title">Bald Mountains</h2>
-                    <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="images/element_latemar.jpg" alt= "Latemar" class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title">Latemar</h2>
-                    <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="images/element_vanoise.jpg" alt= "vanoise national park" class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title">Vanoise National Park</h2>
-                    <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="images/elemet_lago.jpg" alt= "lago di braies" class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title">Lago di Braies</h2>
-                    <button class="element__icon" type="button">
-                        <img src="./images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
-            </div>
-
+        </template>
 
 
         </section>
