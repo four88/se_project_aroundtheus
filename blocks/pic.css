@@ -52,7 +52,7 @@
 
 
 
-.pic__closed{
+.pic_closed{
     visibility: hidden;
     opacity: 0;
     transition: all .3s ease-in-out;

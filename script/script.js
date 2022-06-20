@@ -138,7 +138,7 @@ const handleAddFormSubmit = (evt) => {
 // function popup picture
 const popupPicture = (evt) => {
     
-    pic.classList.remove("pic__closed")
+    pic.classList.remove("pic_closed")
 
     picImg.src = evt.target.src
     picTitle.textContent = evt.target.alt
@@ -147,7 +147,7 @@ const popupPicture = (evt) => {
 
 // function close picture modal
 const closePic = () => {
-    pic.classList.add("pic__closed")
+    pic.classList.add("pic_closed")
 }
 
 
