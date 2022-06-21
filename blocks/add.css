@@ -1,23 +1,4 @@
-.add {
-  width: 100%;
-  z-index: 10;
-  height: 100vh;
-  visibility: visible;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-}
+
 
 .add__container {
   display: flex;
@@ -81,34 +62,8 @@
   opacity: 0.8;
 }
 
-.add__button-closed {
-  z-index: 11;
-  height: 40px;
-  width: 40px;
-  align-self: flex-start;
-  margin-top: -45px;
-  transition-duration: 0.2s;
-  border: none;
-  padding: 0px;
-  background: url('../images/Close_icon.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.add__button-closed:hover {
-  opacity: 0.6;
-}
 
-.add_closed {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-}
 
 @media screen and (max-width: 500px) {
   .add__container {
@@ -124,13 +79,7 @@
     font-size: 1.25rem;
   }
 
-  .add__button-closed {
-    height: 26px;
-    width: 26px;
-    transition-duration: 0.2s;
-    margin: 0;
-    align-self: flex-end;
-  }
+
 }
 
 @media screen and (max-width: 350px) {

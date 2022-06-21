@@ -9,9 +9,11 @@
   </head>
   <body class="body">
     <!-- insert edit profile -->
-    <div class="edit edit_closed">
+    <div class="popup popup_closed"></div>
+    <!-- edit-template -->
+    <template class="edit-template">
       <div class="edit__container">
-        <button type="button" class="edit__button-closed"></button>
+        <button type="button" class="popup__button-closed"></button>
 
         <form class="edit__form" name="editForm">
           <h2 class="edit__title">Edit Profile</h2>
@@ -30,12 +32,13 @@
           <button type="submit" class="edit__button">Save</button>
         </form>
       </div>
-    </div>
+    </template>
 
-    <!-- for add form -->
-    <div class="add add_closed">
+    <!-- add form template-->
+
+    <template class="add-template">
       <div class="add__container">
-        <button type="button" class="add__button-closed"></button>
+        <button type="button" class="popup__button-closed"></button>
 
         <form class="add__form" name="addForm">
           <h2 class="add__title">New place</h2>
@@ -54,18 +57,20 @@
           <button type="submit" class="add__button">create</button>
         </form>
       </div>
-    </div>
+    </template>
 
     <!-- for show big picture  -->
-    <div class="pic pic_closed">
-      <!-- <template class="pic__template"> -->
+
+    <template class="pic-template">
       <div class="pic__container">
-        <button type="button" class="pic__button-closed"></button>
+        <button
+          type="button"
+          class="pic__button-closed popup__button-closed"
+        ></button>
         <img src="./images/element_bald.jpg" alt="" class="pic__img" />
         <h2 class="pic__title">dsaff</h2>
       </div>
-      <!-- </template> -->
-    </div>
+    </template>
 
     <div class="page">
       <header class="header">
