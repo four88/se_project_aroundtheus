@@ -1,110 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="./pages/index.css">
-    
-</head>
-<body class= "body">
-    
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="body">
     <!-- insert edit profile -->
-    <div class="edit edit_closed"> 
-    
-    <div class="edit__container">
-    <button type="button" class="edit__button-closed"></button>    
-    
-            <form class="edit__form" name="editForm">
-                <h2 class="edit__title">Edit Profile</h2>
-                <input type="text" name="inputName" class="edit__input edit__input_type_name" placeholder="Your name">
-                <input type="text" name="inputCareer" class="edit__input edit__input_type_career" placeholder="Your career">
-                <button type="submit" class="edit__button">Save</button>
-            </form>
-        
-    </div>
+    <div class="edit edit_closed">
+      <div class="edit__container">
+        <button type="button" class="edit__button-closed"></button>
+
+        <form class="edit__form" name="editForm">
+          <h2 class="edit__title">Edit Profile</h2>
+          <input
+            type="text"
+            name="inputName"
+            class="edit__input edit__input_type_name"
+            placeholder="Your name"
+          />
+          <input
+            type="text"
+            name="inputCareer"
+            class="edit__input edit__input_type_career"
+            placeholder="Your career"
+          />
+          <button type="submit" class="edit__button">Save</button>
+        </form>
+      </div>
     </div>
 
     <!-- for add form -->
-    <div class="add add_closed"> 
-    
-        <div class="add__container">
-        <button type="button" class="add__button-closed"></button>    
-        
-                <form class="add__form" name="addForm">
-                    <h2 class="add__title">New place</h2>
-                    <input type="text" name="inputTitle" class="add__input add__input_type_title" placeholder="Your place">
-                    <input type="text" name="inputLink" class="add__input add__input_type_link" placeholder="Your image link">
-                    <button type="submit" class="add__button">create</button>
-                </form>
-            
-        </div>      
+    <div class="add add_closed">
+      <div class="add__container">
+        <button type="button" class="add__button-closed"></button>
 
+        <form class="add__form" name="addForm">
+          <h2 class="add__title">New place</h2>
+          <input
+            type="text"
+            name="inputTitle"
+            class="add__input add__input_type_title"
+            placeholder="Your place"
+          />
+          <input
+            type="text"
+            name="inputLink"
+            class="add__input add__input_type_link"
+            placeholder="Your image link"
+          />
+          <button type="submit" class="add__button">create</button>
+        </form>
+      </div>
     </div>
 
     <!-- for show big picture  -->
     <div class="pic pic_closed">
-
-        <!-- <template class="pic__template"> -->
-            <div class="pic__container">
-                <button type="button" class="pic__button-closed"></button>    
-                <img src="./images/element_bald.jpg" alt="" class="pic__img">
-                <h2 class="pic__title">dsaff</h2>
-            </div>
-        <!-- </template> -->
-
+      <!-- <template class="pic__template"> -->
+      <div class="pic__container">
+        <button type="button" class="pic__button-closed"></button>
+        <img src="./images/element_bald.jpg" alt="" class="pic__img" />
+        <h2 class="pic__title">dsaff</h2>
+      </div>
+      <!-- </template> -->
     </div>
 
-
-    
     <div class="page">
+      <header class="header">
+        <img src="./images/logo.png" alt="logo" class="header__logo" />
+      </header>
 
-    <header class="header">
-        <img src="./images/logo.png" alt="logo" class="header__logo">
-    </header>
-
-    <main>
+      <main>
         <section class="profile">
-            
-                <img src="./images/profile.jpg" alt="profile img" class="profile__img">
-            
-            <div class="profile__info">
-                <div class="profile__info-wrap">
-                    <h1 class="profile__info-name">Pharanyu Chuenjit</h1>
-                    <button class="profile__button-edit" type="button"></button>
-                    <p class="profile__info-career">Developer</p>
-                </div>
-                <button class="profile__button" type="button"></button>
-                
+          <img
+            src="./images/profile.jpg"
+            alt="profile img"
+            class="profile__img"
+          />
+
+          <div class="profile__info">
+            <div class="profile__info-wrap">
+              <h1 class="profile__info-name">Pharanyu Chuenjit</h1>
+              <button class="profile__button-edit" type="button"></button>
+              <p class="profile__info-career">Developer</p>
             </div>
+            <button class="profile__button" type="button"></button>
+          </div>
         </section>
 
         <section class="elements">
-
-        <template class="element-template">
+          <template class="element-template">
             <div class="element">
-                <button class="element__delete"></button>
-                <img src=" " alt= " " class="element__pic">
-                <div class="element__name">
-                    <h2 class="element__title"></h2>
-                    <button class="element__icon" type="button">
-                        <img src="../images/icon.svg" alt="element icon heart" class="element__icon-img">
-                    </button>
-                </div>
+              <button class="element__delete"></button>
+              <img src=" " alt=" " class="element__pic" />
+              <div class="element__name">
+                <h2 class="element__title"></h2>
+                <button class="element__icon" type="button">
+                  <img
+                    src="../images/icon.svg"
+                    alt="element icon heart"
+                    class="element__icon-img"
+                  />
+                </button>
+              </div>
             </div>
-        </template>
-
-
+          </template>
         </section>
 
         <footer class="footer">
-            <p class="footer__copyright">© 2021 Around The U.S.</p>
+          <p class="footer__copyright">© 2021 Around The U.S.</p>
         </footer>
-
-    </main>
-</div>
-<!-- script file -->
-<script src="./script/script.js"></script>
-</body>
+      </main>
+    </div>
+    <!-- script file -->
+    <script src="./script/script.js"></script>
+  </body>
 </html>
