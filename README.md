@@ -28,4 +28,4 @@ This project is for learning about adaptive web design and working with layouts.
 * Javascript
 * DOM methodology
 
-The link of this project : [Click here](https://four88.github.io/se_project_aroundtheus/)
+The link of this project : [Click here](https://venerable-kangaroo-e83b06.netlify.app/)
