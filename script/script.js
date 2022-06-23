@@ -2,7 +2,7 @@ const body = document.querySelector('.body');
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('.element-template').content;
 const editBtn = body.querySelector('.profile__button-edit');
-const closeBtn = document.querySelectorAll('.popup__button-closed');
+const closeBtns = document.querySelectorAll('.popup__button-closed');
 const addBtn = body.querySelector('.profile__button');
 
 // edit variable
@@ -24,11 +24,11 @@ const picTitle = pic.querySelector('.pic__title');
 
 //  work with profile form
 const showPopup = (popup) => {
-  popup.classList.remove('popup_closed');
+  popup.classList.add('popup_opened');
 };
 
 const closePopup = (popup) => {
-  popup.classList.add('popup_closed');
+  popup.classList.remove('popup_opened');
 };
 
 // find the form fields in the DOM
@@ -52,19 +52,11 @@ function handleProfileFormSubmit(evt) {
   closePopup(edit);
 }
 
-const showAddPopup = () => {
-  showPopup(add);
-
-  inputName.value = '';
-  inputJob.value = '';
-};
 
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
 
-  data.name.unshift(titleInput.value);
-  data.link.unshift(linkInput.value);
-  const element = createCard(data.name[0], data.link[0]);
+  const element = createCard(titleInput.value, linkInput.value);
 
   elements.prepend(element);
   titleInput.value = '';
@@ -97,7 +89,7 @@ const data = {
 };
 
 // function popup picture
-const popupPicture = (evt) => {
+const openPicturePopup = (evt) => {
   picImg.src = evt.target.src;
   picTitle.textContent = evt.target.alt;
   picImg.alt = evt.target.alt;
@@ -117,13 +109,14 @@ const toggleLike = (evt) => {
 
 const createCard = (name, link) => {
   const element = elementTemplate.querySelector('.element').cloneNode(true);
+  const elementPic= element.querySelector('.element__pic')
 
   element.querySelector('.element__title').textContent = name;
-  element.querySelector('.element__pic').src = link;
-  element.querySelector('.element__pic').alt = name;
+  elementPic.src = link;
+  elementPic.alt = name;
 
-  const elementPic = element.querySelector('.element__pic');
-  elementPic.addEventListener('click', popupPicture);
+  
+  elementPic.addEventListener('click', openPicturePopup);
 
   const elementDelete = element.querySelector('.element__delete');
   elementDelete.addEventListener('click', deleteElement);
@@ -150,8 +143,8 @@ getCardElement(data);
 
 // connect the handler to the form:
 editBtn.addEventListener('click', showProfilePopup);
-addBtn.addEventListener('click', showAddPopup);
-closeBtn.forEach((button) => {
+addBtn.addEventListener('click',() => showPopup(add));
+closeBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
