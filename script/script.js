@@ -25,13 +25,41 @@ const pic = document.querySelector('.pic');
 const picImg = pic.querySelector('.pic__img');
 const picTitle = pic.querySelector('.pic__title');
 
+
+// function for close popup when press Escape
+function closePopupByEscape(event) {
+  if (event.key === "Escape") {
+     // search for an opened popup
+    const openedPopup = [...document.querySelectorAll(".popup")]
+     // close it
+    openedPopup.forEach((popup) => {
+      closePopup(popup)
+    })
+  }
+} 
+
+// function for close popup when click on popup background
+function closePopupOnRemoteClick(evt) {
+  // target is the element on which the event happened
+  // currentTarget is the popup
+  // if they are the same then we should close the popup
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target)
+  }
+}
+
+
 //  work with profile form
 const showPopup = (popup) => {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEscape)
+  popup.addEventListener("mousedown", closePopupOnRemoteClick)
 };
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEscape)
+  popup.removeEventListener("mousedown", closePopupOnRemoteClick) 
 };
 
 // find the form fields in the DOM
@@ -55,20 +83,6 @@ function handleProfileFormSubmit(evt) {
   closePopup(edit);
 }
 
-const handleAddFormSubmit = (evt) => {
-  evt.preventDefault();
-
-  const element = createCard(titleInput.value, linkInput.value);
-
-  elements.prepend(element);
-  titleInput.value = '';
-  linkInput.value = '';
-  closePopup(add);
-};
-
-// add function to each form when they submit
-editForm.addEventListener('submit', handleProfileFormSubmit);
-addForm.addEventListener('submit', handleAddFormSubmit);
 
 //  render card element fields
 const data = {
@@ -95,7 +109,7 @@ const openPicturePopup = (evt) => {
   picImg.src = evt.target.src;
   picTitle.textContent = evt.target.alt;
   picImg.alt = evt.target.alt;
-
+  
   showPopup(pic);
 };
 
@@ -115,28 +129,51 @@ const createCard = (name, link) => {
 
   element.querySelector('.element__title').textContent = name;
   elementPic.src = link;
-  elementPic.alt = name;
-
+  elementPic.alt = `Photo of ${name}`;
+  
   
   elementPic.addEventListener('click', openPicturePopup);
-
+  
   const elementDelete = element.querySelector('.element__delete');
   elementDelete.addEventListener('click', deleteElement);
-
+  
   const elementIcon = element.querySelector('.element__icon-img');
   elementIcon.addEventListener('click', toggleLike);
-
+  
   return element;
 };
 
+// function for handle add submit form
+const handleAddFormSubmit = (evt) => {
+  evt.preventDefault();
+
+  const element = createCard(titleInput.value, linkInput.value);
+
+  elements.prepend(element);
+  addForm.reset()
+  closePopup(add);
+
+  // function for reset submit button to disabled when reopen 
+  const inputElements = Array.from(document.querySelectorAll(".popup__input"))
+  const popup__button = document.querySelector("#submit-add-button")
+
+  toggleButtonState(inputElements, popup__button, config)
+};
+
+
+// add function to each form when they submit
+editForm.addEventListener('submit', handleProfileFormSubmit);
+addForm.addEventListener('submit', handleAddFormSubmit);
+
+
 // function for show the card element into elements
 const getCardElement = (data) => {
-  for (let i = 0; i < data.name.length; i++) {
-    // query element template
 
-    const element = createCard(data.name[i], data.link[i]);
+  data.name.forEach((cardName, index) => {
+    const element = createCard(cardName, data.link[index]);
     elements.append(element);
-  }
+  })
+
 };
 
 // call function
@@ -160,21 +197,3 @@ addBtn.addEventListener('click', () => {
 });
 
 
-//  work with event overlay closing
-const popups = Array.from(document.querySelectorAll('.popup'))
-
-
-
-
-popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains("popup")) {
-      closePopup(popup)
-    }
-  }) 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-      closePopup(popup)
-    }
-  })
-})

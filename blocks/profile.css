@@ -81,6 +81,7 @@
     transition-duration: 0.3s;
     grid-area: btn;
     padding: 0;
+    cursor: pointer;
 
 }
 
@@ -100,7 +101,7 @@
     background-repeat: no-repeat;
     align-self: center;
     transition-duration: 0.3s;
-    
+    cursor: pointer;
     }
     
     

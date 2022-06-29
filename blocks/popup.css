@@ -52,6 +52,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .popup__button-closed:hover {
@@ -100,6 +101,7 @@
   margin-bottom: 36.51px;
   margin-top: 48px;
   transition-duration: 0.2s;
+  cursor: pointer;
 }
 
 .popup__button_disabled {
