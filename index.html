@@ -14,21 +14,40 @@
       <div class="edit__container">
         <button type="button" class="popup__button-closed"></button>
   
-        <form class="edit__form" name="editForm">
-          <h2 class="edit__title">Edit Profile</h2>
-          <input
-            type="text"
-            name="inputName"
-            class="edit__input edit__input_type_name"
-            placeholder="Your name"
-          />
-          <input
-            type="text"
-            name="inputCareer"
-            class="edit__input edit__input_type_career"
-            placeholder="Your career"
-          />
-          <button type="submit" class="edit__button">Save</button>
+        <form class="edit__form popup__form " name="Form">
+          <fieldset class="form__set">
+            
+            <h2 class="edit__title">Edit Profile</h2>
+            <label class="popup__label">
+              <input
+              type="text"
+              name="inputName"
+              class="edit__input edit__input_type_name popup__input "
+              id = "owner-name"
+              placeholder="Your name"
+              minlength="2"
+              maxlength="40"
+              required
+              />
+              <p  class="popup__error" id="owner-name-error"></p>
+           </label>
+
+            <label class="popup__label">
+            <input
+              type="text"
+              name="inputCareer"
+              class="edit__input edit__input_type_career popup__input"
+              id="owner-career"
+              placeholder="Your career"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <p class="popup__error" id="owner-career-error"></p>
+           </label>
+            <button type="submit" class=" popup__button ">Save</button>
+
+          </fieldset>
         </form>
     </div>
     </div>
@@ -40,21 +59,36 @@
       <div class="add__container">
         <button type="button" class="popup__button-closed"></button>
 
-        <form class="add__form" name="addForm">
-          <h2 class="add__title">New place</h2>
-          <input
-            type="text"
-            name="inputTitle"
-            class="add__input add__input_type_title"
-            placeholder="Your place"
-          />
-          <input
-            type="text"
-            name="inputLink"
-            class="add__input add__input_type_link"
-            placeholder="Your image link"
-          />
-          <button type="submit" class="add__button">create</button>
+        <form class="add__form popup__form" name="Form">
+          <fieldset class="form__set">
+            <h2 class="add__title">New place</h2>
+              <label class="popup__label">
+              <input
+                type="text"
+                name="inputTitle"
+                id="card-title"
+                class="add__input add__input_type_title popup__input"
+                placeholder="Your place"
+                minlength="1"
+                maxlength="30"
+                required
+              />
+              <p class="popup__error" id="card-title-error"></p>
+            </label>
+            <label class="popup__label">            
+                <input
+                type="url"
+                name="inputLink"
+                class="add__input add__input_type_link popup__input"
+                id="card-link"
+                placeholder="Your image link"
+                required
+              />
+              <p class="popup__error" id="card-link-error"></p>
+            </label>
+
+            <button type="submit" class="popup__button popup__button_disabled" disabled>create</button>
+          </fieldset>
         </form>
       </div>
     </div>
@@ -121,7 +155,9 @@
         </footer>
       </main>
     </div>
+    
     <!-- script file -->
-    <script src="./script/script.js"></script>
+    <script defer src="./script/script.js"></script>  
+    <script defer src="./script/validate.js"></script>  
   </body>
 </html>

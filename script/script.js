@@ -1,9 +1,12 @@
+
+
 const body = document.querySelector('.body');
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('.element-template').content;
 const editBtn = body.querySelector('.profile__button-edit');
 const closeBtns = document.querySelectorAll('.popup__button-closed');
 const addBtn = body.querySelector('.profile__button');
+const popup = body.querySelector('.popup')
 
 // edit variable
 const edit = document.querySelector('.edit');
@@ -51,7 +54,6 @@ function handleProfileFormSubmit(evt) {
 
   closePopup(edit);
 }
-
 
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
@@ -141,10 +143,38 @@ const getCardElement = (data) => {
 // get card element from data variable
 getCardElement(data);
 
+
 // connect the handler to the form:
+// show edit form when click edit button on profile 
 editBtn.addEventListener('click', showProfilePopup);
-addBtn.addEventListener('click',() => showPopup(add));
+
+// assign closePopup for close button in every class
 closeBtns.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+// show add form when click add button on profile 
+addBtn.addEventListener('click', () => {
+  showPopup(add)
+});
+
+
+//  work with event overlay closing
+const popups = Array.from(document.querySelectorAll('.popup'))
+
+
+
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      closePopup(popup)
+    }
+  }) 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      closePopup(popup)
+    }
+  })
+})
