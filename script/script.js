@@ -30,11 +30,8 @@ const picTitle = pic.querySelector('.pic__title');
 function closePopupByEscape(event) {
   if (event.key === "Escape") {
      // search for an opened popup
-    const openedPopup = [...document.querySelectorAll(".popup")]
-     // close it
-    openedPopup.forEach((popup) => {
-      closePopup(popup)
-    })
+     const openedPopup = document.querySelector(".popup_opened")
+     closePopup(openedPopup) 
   }
 } 
 
@@ -155,9 +152,9 @@ const handleAddFormSubmit = (evt) => {
 
   // function for reset submit button to disabled when reopen 
   const inputElements = Array.from(document.querySelectorAll(".popup__input"))
-  const popup__button = document.querySelector("#submit-add-button")
+  const popupButton = document.querySelector("#submit-add-button")
 
-  toggleButtonState(inputElements, popup__button, config)
+  toggleButtonState(inputElements, popupButton, config)
 };
 
 
