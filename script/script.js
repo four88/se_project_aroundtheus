@@ -9,14 +9,14 @@ const addBtn = body.querySelector('.profile__button');
 const popup = body.querySelector('.popup')
 
 // edit variable
-const edit = document.querySelector('.edit');
-const editForm = edit.querySelector('.edit__form');
+const editProfilePopup = document.querySelector('.edit');
+const editForm = editProfilePopup.querySelector('.edit__form');
 const inputName = editForm.querySelector('.edit__input_type_name');
 const inputJob = editForm.querySelector('.edit__input_type_career');
 
 // add variable
-const add = document.querySelector('.add');
-const addForm = add.querySelector('.add__form');
+const addCardPopup = document.querySelector('.add');
+const addForm = addCardPopup.querySelector('.add__form');
 const titleInput = addForm.querySelector('.add__input_type_title');
 const linkInput = addForm.querySelector('.add__input_type_link');
 
@@ -65,7 +65,7 @@ const profileJob = body.querySelector('.profile__info-career');
 
 // function for show edit profile form and edit profile
 const showProfilePopup = () => {
-  showPopup(edit);
+  showPopup(editProfilePopup);
 
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
@@ -77,7 +77,7 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
 
-  closePopup(edit);
+  closePopup(editProfilePopup);
 }
 
 
@@ -148,7 +148,7 @@ const handleAddFormSubmit = (evt) => {
 
   elements.prepend(element);
   addForm.reset()
-  closePopup(add);
+  closePopup(addCardPopup);
 
   // function for reset submit button to disabled when reopen 
   const inputElements = Array.from(document.querySelectorAll(".popup__input"))
@@ -190,7 +190,7 @@ closeBtns.forEach((button) => {
 
 // show add form when click add button on profile 
 addBtn.addEventListener('click', () => {
-  showPopup(add)
+  showPopup(addCardPopup)
 });
 
 
