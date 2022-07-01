@@ -1,4 +1,7 @@
-
+ //  import class
+import { showPopup, closePopup} from './utils.js'
+import { Card } from './card.js'
+import { formValidator } from './validation.js'
 
 const body = document.querySelector('.body');
 const elements = document.querySelector('.elements');
@@ -7,7 +10,7 @@ const editBtn = body.querySelector('.profile__button-edit');
 const closeBtns = document.querySelectorAll('.popup__button-closed');
 const addBtn = body.querySelector('.profile__button');
 const popup = body.querySelector('.popup')
-
+ 
 // edit variable
 const editProfilePopup = document.querySelector('.edit');
 const editForm = editProfilePopup.querySelector('.edit__form');
@@ -16,52 +19,29 @@ const inputJob = editForm.querySelector('.edit__input_type_career');
 
 // add variable
 const addCardPopup = document.querySelector('.add');
-const addForm = addCardPopup.querySelector('.add__form');
+const addForm = addCardPopup.querySelector('.add__form'); 
 const titleInput = addForm.querySelector('.add__input_type_title');
 const linkInput = addForm.querySelector('.add__input_type_link');
 
-// pic variable
-const pic = document.querySelector('.pic');
-const picImg = pic.querySelector('.pic__img');
-const picTitle = pic.querySelector('.pic__title');
 
-
-// function for close popup when press Escape
-function closePopupByEscape(event) {
-  if (event.key === "Escape") {
-     // search for an opened popup
-     const openedPopup = document.querySelector(".popup_opened")
-     closePopup(openedPopup) 
-  }
-} 
-
-// function for close popup when click on popup background
-function closePopupOnRemoteClick(evt) {
-  // target is the element on which the event happened
-  // currentTarget is the popup
-  // if they are the same then we should close the popup
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.target)
-  }
-}
-
-
-//  work with profile form
-const showPopup = (popup) => {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupByEscape)
-  popup.addEventListener("mousedown", closePopupOnRemoteClick)
-};
-
-const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupByEscape)
-  popup.removeEventListener("mousedown", closePopupOnRemoteClick) 
-};
 
 // find the form fields in the DOM
 const profileName = body.querySelector('.profile__info-name');
 const profileJob = body.querySelector('.profile__info-career');
+
+// set all parameter for add into enableValidation
+const config = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+}
+
+// declare formValiditorClass
+const validitor = new formValidator(config, ".popup__button")
+
 
 // function for show edit profile form and edit profile
 const showProfilePopup = () => {
@@ -101,50 +81,15 @@ const data = {
   ],
 };
 
-// function popup picture
-const openPicturePopup = (evt) => {
-  picImg.src = evt.target.src;
-  picTitle.textContent = evt.target.alt;
-  picImg.alt = evt.target.alt;
-  
-  showPopup(pic);
-};
 
-// function delete element
-const deleteElement = (evt) => {
-  evt.target.closest('.element').remove();
-};
-
-// function for like icon on element
-const toggleLike = (evt) => {
-  evt.target.classList.toggle('element__icon-img_active');
-};
-
-const createCard = (name, link) => {
-  const element = elementTemplate.querySelector('.element').cloneNode(true);
-  const elementPic= element.querySelector('.element__pic')
-
-  element.querySelector('.element__title').textContent = name;
-  elementPic.src = link;
-  elementPic.alt = `Photo of ${name}`;
-  
-  
-  elementPic.addEventListener('click', openPicturePopup);
-  
-  const elementDelete = element.querySelector('.element__delete');
-  elementDelete.addEventListener('click', deleteElement);
-  
-  const elementIcon = element.querySelector('.element__icon-img');
-  elementIcon.addEventListener('click', toggleLike);
-  
-  return element;
-};
 
 // function for handle add submit form
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
 
-  const element = createCard(titleInput.value, linkInput.value);
+  const card = new Card(titleInput.value, linkInput.value, ".element-template");
+
+  const element = card.generateCard()  
 
   elements.prepend(element);
   addForm.reset()
@@ -154,8 +99,8 @@ const handleAddFormSubmit = (evt) => {
   const inputElements = Array.from(document.querySelectorAll(".popup__input"))
   const popupButton = document.querySelector("#submit-add-button")
 
-  toggleButtonState(inputElements, popupButton, config)
-};
+  validitor.toggleButtonState(inputElements, popupButton)
+}; 
 
 
 // add function to each form when they submit
@@ -164,21 +109,13 @@ addForm.addEventListener('submit', handleAddFormSubmit);
 
 
 // function for show the card element into elements
-const getCardElement = (data) => {
-
-  data.name.forEach((cardName, index) => {
-    const element = createCard(cardName, data.link[index]);
+  data.name.forEach((item, index) => {
+    const card = new Card(item, data.link[index], ".element-template");
+    const element = card.generateCard()
     elements.append(element);
+
   })
-
-};
-
-// call function
-// get card element from data variable
-getCardElement(data);
-
-
-// connect the handler to the form:
+ 
 // show edit form when click edit button on profile 
 editBtn.addEventListener('click', showProfilePopup);
 
@@ -192,5 +129,5 @@ closeBtns.forEach((button) => {
 addBtn.addEventListener('click', () => {
   showPopup(addCardPopup)
 });
-
-
+// enableValidation from formValidator class
+validitor.enableValidation()
