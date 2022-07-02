@@ -1,7 +1,7 @@
  //  import class
 import { showPopup, closePopup} from './utils.js'
 import { Card } from './Card.js'
-import { FormValidator } from './Validation.js'
+import { FormValidator } from './FormValidator.js'
 
 const body = document.querySelector('.body');
 const elements = document.querySelector('.elements');
@@ -90,11 +90,9 @@ const data = {
 const handleAddFormSubmit = (evt) => {
   evt.preventDefault();
 
-  const card = new Card(titleInput.value, linkInput.value, ".element-template");
+  renderCard(titleInput.value, linkInput.value);
 
-  const element = card.generateCard()  
 
-  elements.prepend(element);
   addForm.reset()
   closePopup(addCardPopup);
 
@@ -108,15 +106,16 @@ addForm.addEventListener('submit', handleAddFormSubmit);
 
 
 // function for show the card element into elements
-const renderCard = (data) =>  {data.name.forEach((item, index) => {
-    const card = new Card(item, data.link[index], ".element-template");
+const renderCard = (name , link) => {
+    const card = new Card(name, link, ".element-template");
     const element = card.generateCard()
-    elements.append(element);
-
-})
+    elements.prepend(element);
 }
 
-renderCard(data)
+data.name.forEach((item, index) => { 
+  renderCard(item, data.link[index])
+})
+
  
 // show edit form when click edit button on profile 
 editBtn.addEventListener('click', showProfilePopup);
