@@ -29,7 +29,7 @@ export class Card {
     this._element.querySelector(".element__title").textContent = this._name;
     this._element.querySelector(".element__pic").src = this._link
     this._element.querySelector(".element__pic").alt = `Photo of ${this._name}`
-    this._setEventListeners()
+    
 
 
     return this._element

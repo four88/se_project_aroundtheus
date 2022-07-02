@@ -1,7 +1,7 @@
  //  import class
 import { showPopup, closePopup} from './utils.js'
-import { Card } from './card.js'
-import { formValidator } from './validation.js'
+import { Card } from './Card.js'
+import { FormValidator } from './Validation.js'
 
 const body = document.querySelector('.body');
 const elements = document.querySelector('.elements');
@@ -13,7 +13,7 @@ const popup = body.querySelector('.popup')
  
 // edit variable
 const editProfilePopup = document.querySelector('.edit');
-const editForm = editProfilePopup.querySelector('.edit__form');
+const editForm = document.querySelector('.edit__form');
 const inputName = editForm.querySelector('.edit__input_type_name');
 const inputJob = editForm.querySelector('.edit__input_type_career');
 
@@ -29,9 +29,8 @@ const linkInput = addForm.querySelector('.add__input_type_link');
 const profileName = body.querySelector('.profile__info-name');
 const profileJob = body.querySelector('.profile__info-career');
 
-// set all parameter for add into enableValidation
+// set all parameter for add into enableValidation for edit form
 const config = {
-    formSelector: ".popup__form",
     inputSelector: ".popup__input",
     submitButtonSelector: ".popup__button",
     inactiveButtonClass: "popup__button_disabled",
@@ -39,16 +38,20 @@ const config = {
     errorClass: "popup__error_visible"
 }
 
+
 // declare formValiditorClass
-const validitor = new formValidator(config, ".popup__button")
+const editValiditor = new FormValidator(editForm, config)
+const addValiditor = new FormValidator(addForm, config)
 
 
 // function for show edit profile form and edit profile
 const showProfilePopup = () => {
   showPopup(editProfilePopup);
+  
 
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
+  
 };
 
 function handleProfileFormSubmit(evt) {
@@ -95,11 +98,7 @@ const handleAddFormSubmit = (evt) => {
   addForm.reset()
   closePopup(addCardPopup);
 
-  // function for reset submit button to disabled when reopen 
-  const inputElements = Array.from(document.querySelectorAll(".popup__input"))
-  const popupButton = document.querySelector("#submit-add-button")
 
-  validitor.toggleButtonState(inputElements, popupButton)
 }; 
 
 
@@ -128,6 +127,10 @@ closeBtns.forEach((button) => {
 // show add form when click add button on profile 
 addBtn.addEventListener('click', () => {
   showPopup(addCardPopup)
+  addValiditor.enableValidation()
 });
-// enableValidation from formValidator class
-validitor.enableValidation()
+
+
+
+editValiditor.enableValidation()
+addValiditor.enableValidation()
