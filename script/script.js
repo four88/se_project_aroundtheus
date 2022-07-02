@@ -108,12 +108,15 @@ addForm.addEventListener('submit', handleAddFormSubmit);
 
 
 // function for show the card element into elements
-  data.name.forEach((item, index) => {
+const renderCard = (data) =>  {data.name.forEach((item, index) => {
     const card = new Card(item, data.link[index], ".element-template");
     const element = card.generateCard()
     elements.append(element);
 
-  })
+})
+}
+
+renderCard(data)
  
 // show edit form when click edit button on profile 
 editBtn.addEventListener('click', showProfilePopup);
