@@ -1,4 +1,4 @@
-import { showPopup } from './utils.js'
+
 
 // pic variable
 const pic = document.querySelector('.pic');
@@ -6,9 +6,10 @@ const picImg = document.querySelector('.pic__img');
 const picTitle = document.querySelector('.pic__title');
 
 export class Card {
-  constructor(name, link, templateSelector){
-    this._name = name
-    this._link = link
+  constructor({data, handleCardClick}, templateSelector){
+    this._name = data.name
+    this._link = data.link
+    this._handleCardClick = handleCardClick
     this._templateSelector = templateSelector 
   }
   
@@ -45,14 +46,6 @@ export class Card {
 
   }
 
-  _handleOpenPopup() {
-
-    picImg.src = this._link;
-    picTitle.textContent = this._name;
-    picImg.alt = `Photo of ${this._name}`;
-    
-    showPopup(pic); 
-  }
 
   
   
@@ -63,7 +56,7 @@ export class Card {
       .addEventListener('click', this._deleteElement)
 
     this._element.querySelector('.element__pic')
-      .addEventListener('click', () => this._handleOpenPopup())
+      .addEventListener('click', () => this._handleCardClick())
 
     this._element.querySelector('.element__icon-img')
       .addEventListener('click', this._toggleLike)
