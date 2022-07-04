@@ -15,6 +15,6 @@ export default class UserInfo{
 
     setUserInfo(name, job) {
         this._nameSelector.textContent = name
-        this._jobSelector.textContent =job
+        this._jobSelector.textContent = job
     }
 }

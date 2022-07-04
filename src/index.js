@@ -1,10 +1,22 @@
- //  import class
-import { Card } from '../components/Card.js'
-import PopupWithImage from '../components/PopupWithImage.js' 
-import PopupWithForm from '../components/PopupWithForm.js' 
-import Section from '../components/Section.js'
-import UserInfo from '../components/UserInfo.js'
-import { FormValidator } from '../components/FormValidator.js'
+import "./pages/index.css";
+import logoSrc from "./images/logo.png"
+import profileSrc from "./images/profile.jpg"
+
+
+const logo = document.querySelector('#image-logo')
+logo.src = logoSrc
+
+const profileImg = document.querySelector('#image-profile')
+profileImg.src = profileSrc
+
+
+//  import class
+import { Card } from './components/Card.js'
+import PopupWithImage from './components/PopupWithImage.js' 
+import PopupWithForm from './components/PopupWithForm.js' 
+import Section from './components/Section.js'
+import UserInfo from './components/UserInfo.js'
+import { FormValidator } from './components/FormValidator.js'
 
 // edit name button for open edit user info
 const editBtn = document.querySelector('.profile__button-edit');
