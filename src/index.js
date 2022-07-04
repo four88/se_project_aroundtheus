@@ -18,30 +18,17 @@ import Section from './components/Section.js'
 import UserInfo from './components/UserInfo.js'
 import { FormValidator } from './components/FormValidator.js'
 
-// edit name button for open edit user info
-const editBtn = document.querySelector('.profile__button-edit');
-
-// add button for open add form 
-const addBtn = document.querySelector('.profile__button');
-
-// edit variable
-const editForm = document.querySelector('.edit__form');
-const inputName = editForm.querySelector('.edit__input_type_name');
-const inputJob = editForm.querySelector('.edit__input_type_career');
-
-// add variable
-const addCardPopup = document.querySelector('.add');
-const addForm = addCardPopup.querySelector('.add__form'); 
-
-// set all parameter for add into enableValidation for edit form
-const config = {
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button",
-    inactiveButtonClass: "popup__button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible"
-}
-
+import {
+  editBtn,
+  addBtn,
+  editForm,
+  inputName,
+  inputJob,
+  
+  addForm,
+  config,
+  data
+} from './utils/constants.js'
 // // declare class as obj here
 //  formValiditor Class
 const editValiditor = new FormValidator(editForm, config)
@@ -50,34 +37,7 @@ const addValiditor = new FormValidator(addForm, config)
 // popup image
 const imagePopup = new PopupWithImage('.pic')
 
-//  render card element fields
-const data = [
-  {
-    name: 'Yoesmite Valley',
-    link: 'https://code.s3.yandex.net/web-code/yosemite.jpg'
-  },
-  {
-    name: 'Lake Louise',
-    link: 'https://code.s3.yandex.net/web-code/lake-louise.jpg'
-  },
-  {
-    name: 'Bald moutains',
-    link: 'https://code.s3.yandex.net/web-code/bald-mountains.jpg'
-  },
-  {
-    name: 'Latemar',
-    link: 'https://code.s3.yandex.net/web-code/latemar.jpg'
-  },
-  {
-    name: 'Vanoise National Park',
-    link: 'https://code.s3.yandex.net/web-code/vanoise.jpg'
-  },
-  {
-    name: 'Lago di Braies',
-    link: 'https://code.s3.yandex.net/web-code/lago.jpg'
-  }
 
-]
 
 
 // function for create card element from Card class
