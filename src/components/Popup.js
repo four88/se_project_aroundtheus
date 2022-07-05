@@ -1,48 +1,48 @@
 export default class Popup {
-constructor(popupSelector) {
-        this._popupSelector = document.querySelector(popupSelector)
-        this._handleEscClose = this._handleEscClose.bind(this);
+  constructor(popupSelector) {
+    this._popupElement = document.querySelector(popupSelector);
+    this._handleEscClose = this._handleEscClose.bind(this);
+    this._handleOverlayClickClose = this._handleOverlayClickClose.bind(this);
+  }
+
+  open() {
+    this._setEventListeners();
+    this._popupElement.classList.add('popup_opened');
+  }
+
+  close() {
+      this._popupElement.classList.remove('popup_opened');
+      this._removeEventListeners()
+  }
+
+  _handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      this.close();
     }
+  }
 
-    open() {
-        this._setEventListeners()
-        this._popupSelector.classList.add('popup_opened');
+  _handleOverlayClickClose(evt) {
+    if (evt.target === evt.currentTarget) {
+      this.close();
     }
-
-    close() {
-        this._popupSelector.classList.remove('popup_opened')
-    }
-
-
-    _handleEscClose(evt) {
-        if (evt.key === "Escape") {
-          this.close();
-        }
-      }
+  }
     
+    _removeEventListeners() {
+        document.removeEventListener('keydown', this._handleEscClose);
+        this._popupElement.removeEventListener('click', this._handleOverlayClickClose);
 
+  }
 
-    _setEventListeners() {
+  _setEventListeners() {
+    document.addEventListener('keydown', this._handleEscClose);
 
-        
-        document.addEventListener("keydown", this._handleEscClose)
-        
-        
-        const closeBtn = this._popupSelector.querySelector(".popup__button-closed")
-        
-        closeBtn.addEventListener('click', () => {
-            this.close()
-        })
+    const closeBtn = this._popupElement.querySelector('.popup__button-closed');
 
-        // for click overlay to close popup
-        this._popupSelector.addEventListener("click", (evt) => {
-            if (evt.target === evt.currentTarget) {
-                this.close();
-            }
-        })
+    closeBtn.addEventListener('click', () => {
+      this.close();
+    });
 
-
-    
-    }
-
+    // for click overlay to close popup
+    this._popupElement.addEventListener('click', this._handleOverlayClickClose);
+  }
 }

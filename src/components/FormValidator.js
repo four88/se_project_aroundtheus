@@ -28,7 +28,7 @@ _hideInputError  (inputElement )  {
 }
 
 // check each input are valid or not 
-_checkInputValidity  ( inputElement)  { 
+_checkInputValidity ( inputElement)  { 
     if (!inputElement.validity.valid) { 
         this._showInputError(inputElement ) 
     } else {
@@ -38,35 +38,35 @@ _checkInputValidity  ( inputElement)  {
 } 
 
 // check if input has some invalid return true for using on toggleButtonState 
- _hasInvalidInput  (inputList)  {
-    return !inputList.every((inputElement) => inputElement.validity.valid )
+ _hasInvalidInput = () =>  {
+    return !this._inputList.every((inputElement) => inputElement.validity.valid )
 }
 
 // function for set button if hasInvalidInput return add inactiveButtonClass to button
- _toggleButtonState  (inputElements, submitButton )  {
-    
-     if (this._hasInvalidInput(inputElements)) {
-        submitButton.classList.add(this._inactiveButtonClass)
-        submitButton.disabled = true;
+toggleButtonState(){
+     if (this._hasInvalidInput()) {
+        this._buttonElement.classList.add(this._inactiveButtonClass)
+        this._buttonElement.disabled = true;
         return;
     }
         
-    submitButton.classList.remove(this._inactiveButtonClass)
-    submitButton.disabled = false;
+    this._buttonElement.classList.remove(this._inactiveButtonClass)
+    this._buttonElement.disabled = false;
  }
     
 
 
 // set input element and button element to checkInputValidity and toggleButtonState
- _setEventListeners  ()  {
-    
-    const inputElements = [...this._formElement.querySelectorAll(this._inputSelector)] // ... similar to Array.from
-    const submitButton = this._formElement.querySelector(this._submitButtonSelector)
+    _setEventListeners() {
+     
+    this._inputList = [...this._formElement.querySelectorAll(this._inputSelector)] // ... similar to Array.from
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector) 
 
-    inputElements.forEach((inputElement) => {
+     
+    this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', (e) => {
             this._checkInputValidity(inputElement)
-            this._toggleButtonState(inputElements, submitButton)
+            this.toggleButtonState()
             
         })
     })

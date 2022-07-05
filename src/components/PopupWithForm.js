@@ -5,35 +5,47 @@ export default class PopupWithForm extends Popup{
         super(popupSelector)
         
         this._formSubmitHandle = formSubmitHandle
-        this._formSelector = this._popupSelector.querySelector(".popup__form") 
+        this._formElement = this._popupElement.querySelector(".popup__form") 
         
     }
 
     _getInputValue() {
-        this._inputList = [...this._formSelector.querySelectorAll(".popup__input")]
-        this._inputValues = {}
+        const inputList = [...this._formElement.querySelectorAll(".popup__input")]
+        const inputValues = {}
 
-        this._inputList.forEach((input) => {
-            this._inputValues[input.name] = input.value
+        inputList.forEach((input) => {
+            inputValues[input.name] = input.value
         })
 
-        return this._inputValues
+        return inputValues
 
     }
 
-    setEventListeners() {
-        this._formSelector.addEventListener("submit", (evt) => {
-            evt.preventDefault();
-            
-            // get input value form _getInputValue then you can run any function 
-            // by using these input
-            this._formSubmitHandle(this._getInputValue());
-        });
+
+    _handleSubmit = (evt) => {
+        evt.preventDefault();
+        this._formSubmitHandle(this._getInputValue());
+      }
+      
+      _setEventListeners() {
+        this._formElement.addEventListener("submit", this._handleSubmit)
         super._setEventListeners();
+      }
+      
+      _removeEventListeners() {
+        this._formElement.removeEventListener("submit", this._handleSubmit)
+        super._removeEventListeners();
+      } 
+
+    open() {
+        super.open()
+        this._setEventListeners()
     }
+
     close() {
         super.close();
-        this._formSelector.reset()
+        this._formElement.reset()
+        this._removeEventListeners()
     }
 }
 

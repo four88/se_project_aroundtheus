@@ -1,6 +1,6 @@
-import "./pages/index.css";
-import logoSrc from "./images/logo.png"
-import profileSrc from "./images/profile.jpg"
+import "./index.css";
+import logoSrc from "../images/logo.png"
+import profileSrc from "../images/profile.jpg"
 
 
 const logo = document.querySelector('#image-logo')
@@ -11,12 +11,12 @@ profileImg.src = profileSrc
 
 
 //  import class
-import { Card } from './components/Card.js'
-import PopupWithImage from './components/PopupWithImage.js' 
-import PopupWithForm from './components/PopupWithForm.js' 
-import Section from './components/Section.js'
-import UserInfo from './components/UserInfo.js'
-import { FormValidator } from './components/FormValidator.js'
+import { Card } from '../components/Card.js'
+import PopupWithImage from '../components/PopupWithImage.js' 
+import PopupWithForm from '../components/PopupWithForm.js' 
+import Section from '../components/Section.js'
+import UserInfo from '../components/UserInfo.js'
+import { FormValidator } from '../components/FormValidator.js'
 
 import {
   editBtn,
@@ -28,7 +28,7 @@ import {
   addForm,
   config,
   data
-} from './utils/constants.js'
+} from '../utils/constants.js'
 // // declare class as obj here
 //  formValiditor Class
 const editValiditor = new FormValidator(editForm, config)
@@ -64,13 +64,13 @@ const addFormSubmitPopup = new PopupWithForm(
     const newCardLink = inputValues["inputLink"];
 
     // New place card object
-    const NewInputValues = {
+    const newInputValues = {
       name: newCardTitle,
       link: newCardLink
     };
 
       // create card from newInputValues
-     const cardElement  = createCard(NewInputValues)
+     const cardElement  = createCard(newInputValues)
 
     // add new cardElement to cardList object of Section class
     cardList.addItem(cardElement)
@@ -81,7 +81,7 @@ const addFormSubmitPopup = new PopupWithForm(
 
 
 //  run setEventListeners when user submit form 
-addFormSubmitPopup.setEventListeners()
+
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
@@ -94,16 +94,16 @@ const editFormSubmitPopup = new PopupWithForm(
     formSubmitHandle: (inputValues) => {
       // get inputValues from name
     
-      console.log(inputValues["inputName"])
+      
       const newUserName = inputValues["inputName"]
       const newUserJob = inputValues["inputCareer"]
 
       // New User info object
-      const NewInputValues = {
+      const newInputValues = {
         name: newUserName,
         job: newUserJob
       }
-      userInfo.setUserInfo(NewInputValues.name, NewInputValues.job)
+      userInfo.setUserInfo(newInputValues.name, newInputValues.job)
 
       editFormSubmitPopup.close()
       
@@ -111,7 +111,7 @@ const editFormSubmitPopup = new PopupWithForm(
   }
 )
 
-editFormSubmitPopup.setEventListeners()
+
 
 
 // show Card list with section class
@@ -131,13 +131,15 @@ editBtn.addEventListener('click', () => {
   editFormSubmitPopup.open()
   inputName.value = userInfo.getUserInfo().name
   inputJob.value = userInfo.getUserInfo().job
-  editValiditor.enableValidation()
+  
 });
 
 // show add form when click add button on profile 
 addBtn.addEventListener('click', () => {
   addFormSubmitPopup.open()
-  addValiditor.enableValidation()
+  addValiditor.toggleButtonState()
 });
 
 
+editValiditor.enableValidation()
+addValiditor.enableValidation()
