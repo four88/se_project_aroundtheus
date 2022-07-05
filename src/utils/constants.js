@@ -12,6 +12,8 @@ export const inputJob = editForm.querySelector('.edit__input_type_career');
 // add variable
 export const addCardPopup = document.querySelector('.add');
 export const addForm = addCardPopup.querySelector('.add__form');
+export const inputTitle = addForm.querySelector('.add__input_type_title')
+export const inputLink = addForm.querySelector('.add__input_type_link')
 
 // set all parameter for add into enableValidation for edit form
 export const config = {

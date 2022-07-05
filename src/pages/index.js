@@ -25,6 +25,8 @@ import {
   addForm,
   config,
   data,
+  inputTitle,
+  inputLink
 } from '../utils/constants.js';
 // // declare class as obj here
 //  formValiditor Class
@@ -126,6 +128,8 @@ editBtn.addEventListener('click', () => {
 // show add form when click add button on profile
 addBtn.addEventListener('click', () => {
   addFormSubmitPopup.open();
+  inputTitle.value = ""
+  inputLink.value = ""
   addValiditor.toggleButtonState();
 });
 
