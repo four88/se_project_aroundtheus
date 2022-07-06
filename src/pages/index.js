@@ -128,8 +128,6 @@ editBtn.addEventListener('click', () => {
 // show add form when click add button on profile
 addBtn.addEventListener('click', () => {
   addFormSubmitPopup.open();
-  inputTitle.value = ""
-  inputLink.value = ""
   addValiditor.toggleButtonState();
 });
 
