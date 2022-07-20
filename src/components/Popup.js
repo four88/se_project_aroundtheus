@@ -1,49 +1,40 @@
 export default class Popup {
   constructor(popupSelector) {
-    this._popupElement = document.querySelector(popupSelector);
+    this._popup = document.querySelector(popupSelector);
+    // search for popup
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._handleOverlayClickClose = this._handleOverlayClickClose.bind(this);
-    this._closeBtn = this._popupElement.querySelector('.popup__button-closed');
-    this.close = this.close.bind(this); 
+    // bind the method to the instance of the class
+    this._closeButton = this._popup.querySelector(".popup__button-closed");
   }
 
   open() {
-    this._setEventListeners();
-    this._popupElement.classList.add('popup_opened');
+    this._popup.classList.add("popup_opened");
+
+    document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
-    this._popupElement.classList.remove('popup_opened');
-    this._removeEventListeners();
+    this._popup.classList.remove("popup_opened");
+
+    document.removeEventListener("keydown", this._handleEscClose);
   }
 
   _handleEscClose(evt) {
-    if (evt.key === 'Escape') {
+    if (evt.key === "Escape") {
       this.close();
     }
   }
 
-  _handleOverlayClickClose(evt) {
-    if (evt.target === evt.currentTarget) {
+  setEventListeners() {
+    this._closeButton.addEventListener("click", () => {
       this.close();
-    }
-  }
+    });
 
-  _removeEventListeners() {
-    document.removeEventListener('keydown', this._handleEscClose);
-    this._popupElement.removeEventListener(
-      'click',
-      this._handleOverlayClickClose
-    );
-    this._closeBtn.removeEventListener('click', this.close);
-  }
-
-  _setEventListeners() {
-    document.addEventListener('keydown', this._handleEscClose);
-
-    this._closeBtn.addEventListener('click',  this.close);
-
-    // for click overlay to close popup
-    this._popupElement.addEventListener('click', this._handleOverlayClickClose);
+    this._popup.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("popup")) {
+        this.close();
+      }
+    });
   }
 }
+

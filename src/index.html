@@ -8,15 +8,13 @@
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="body">
-    <!-- insert edit profile -->
 
+    <!-- insert edit profilee -->
     <div class="edit popup" >
       <div class="edit__container">
         <button type="button" class="popup__button-closed"></button>
-  
         <form class="edit__form popup__form " name="Form">
           <fieldset class="popup__set">
-            
             <h2 class="edit__title">Edit Profile</h2>
             <label class="popup__label">
               <input
@@ -31,7 +29,6 @@
               />
               <p  class="popup__error" id="owner-name-error"></p>
            </label>
-
             <label class="popup__label">
             <input
               type="text"
@@ -45,8 +42,7 @@
             />
             <p class="popup__error" id="owner-career-error"></p>
            </label>
-            <button type="submit" class=" popup__button ">Save</button>
-
+            <button type="submit" class=" popup__button popup__button_save">Save</button>
           </fieldset>
         </form>
     </div>
@@ -54,11 +50,9 @@
 
 
     <!-- add form template-->
-
     <div class="add popup">
       <div class="add__container">
         <button type="button" class="popup__button-closed"></button>
-
         <form class="add__form popup__form" name="Form">
           <fieldset class="popup__set">
             <h2 class="add__title">New place</h2>
@@ -86,15 +80,13 @@
               />
               <p class="popup__error" id="card-link-error"></p>
             </label>
-
-            <button type="submit" class="popup__button popup__button_disabled" id="submit-add-button" disabled>Submit</button>
+            <button type="submit" class="popup__button popup__button_save popup__button_disabled" id="submit-add-button" disabled>Create</button>
           </fieldset>
         </form>
       </div>
     </div>
 
     <!-- for show big picture  -->
-
     <div class="pic popup">
       <div class="pic__container">
         <button
@@ -103,6 +95,45 @@
         ></button>
         <img src=" " alt=" " class="pic__img" />
         <h2 class="pic__title"></h2>
+      </div>
+    </div>
+
+    <!--for delete popup confirmation-->
+    <div class="delete popup " >
+      <div class="delete__container">
+        <button type="button" class="popup__button-closed"></button>
+        <form class="delete__form popup__form " name="Form">
+          <fieldset class="popup__set">
+            <h2 class="delete__title">Are you sure?</h2>
+            <button type="submit" class=" popup__button delete__button">Yes</button>
+          </fieldset>
+        </form>
+    </div>
+    </div>
+
+    <!-- form for change user avatar template-->
+    <div class="avatar popup">
+      <div class="avatar__container">
+        <button type="button" class="popup__button-closed"></button>
+        <form class="avatar__form popup__form" name="Form">
+          <fieldset class="popup__set">
+            <h2 class="avatar__title">Change Profile Picture</h2>
+              <label class="popup__label">
+              <input
+                type="url"
+                name="avatarLink"
+                id="avatar-link"
+                class="avatar__input avatar__input_type_link popup__input"
+                placeholder="Your link URL"
+                minlength="1"
+                maxlength="30"
+                required
+              />
+              <p class="popup__error" id="avatar-link-error"></p>
+            </label>
+            <button type="submit" class="popup__button popup__button_save popup__button_disabled" id="submit-avatar-button" disabled>Submit</button>
+          </fieldset>
+        </form>
       </div>
     </div>
 
@@ -115,30 +146,32 @@
 
       <main>
         <section class="profile">
-          <img
+          <div class="profile__img-wrap">
+          <div class="profile__img-edit"></div>
+          <div
             id="image-profile"
-    
             alt="profile img"
             class="profile__img"
-          />
-
+            ></div>
+              
+          </div>
           <div class="profile__info">
             <div class="profile__info-wrap">
               <h1 class="profile__info-name">Pharanyu Chuenjit</h1>
               <button class="profile__button-edit" type="button"></button>
               <p class="profile__info-career">Developer</p>
             </div>
-            <button class="profile__button" type="button"></button>
+            <button class="profile__button profile__button-add" type="button"></button>
           </div>
         </section>
 
-        <section class="elements">
-          <template class="element-template">
+      <section class="elements">
+          <template class="element-template"> 
             <div class="element">
               <button class="element__delete"></button>
-              <img src=" " alt=" " class="element__pic" />
+              <img src="https://code.s3.yandex.net/web-code/lago.jpg" alt=" " class="element__pic" />
               <div class="element__name">
-                <h2 class="element__title"></h2>
+                <h2 class="element__title">faddf</h2>
                 <button class="element__icon" type="button">
                   <img
                   src="<%= require('./images/icon.svg')%>"
@@ -146,10 +179,11 @@
                     alt="element icon heart"
                     class="element__icon-img"
                   />
+                <p class="element__like-counter">5</p>
                 </button>
               </div>
             </div>
-          </template>
+           </template>  
         </section>
 
         <footer class="footer">
