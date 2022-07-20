@@ -1,3 +1,5 @@
+
+
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -13,6 +15,12 @@ export default class Api {
   // fetch data about the user from server
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then(res => this._checkResponse(res));
+  }
+
+  getUserAvatar() {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
     }).then(res => this._checkResponse(res));
   }
@@ -53,14 +61,10 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar }),
+      body: JSON.stringify({ avatar })
     }).then(res => this._checkResponse(res));
   }
 
-  // resolve server requests and render when requests are complete
-  getAppInfo() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
-  }
 
   //Delete card from server
   deleteCard(cardId) {

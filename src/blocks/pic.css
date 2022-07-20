@@ -19,6 +19,7 @@
 .pic__img {
   width: 433px;
   height: 540px;
+  object-fit: cover;
   border-radius: 0px;
   grid-area: pic;
 }

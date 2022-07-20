@@ -28,7 +28,6 @@ import {
   profileName
 } from '../utils/constants.js';
 
-
 // // declare class as obj here
 //  formValiditor Class
 const editValiditor = new FormValidator(editForm, config);
@@ -98,34 +97,30 @@ const renderCard = (cardItem) => {
     ".element-template",
     userInfo.getUserInfo().id
   );
-  return renderNewCard.generateCard();
+  return renderNewCard.generateCard()
 };
 
 // fetch user and card data from server 
-// I have some question my profile picture is not show on the page 
-// i try userInfo.setUserInfo and userInfo.updateAvatar both are working when with out api
-// but when have api is not working. I don't know the reason why this happend. 
+
 api
   .getUserInfo()
   .then((res) => {
+    console.log(res)
     userInfo.setUserInfo(res.name, res.about, res.avatar, res._id);
   })
-  .then(() => {
-    api.getInitialCards().then((res) => {
-      const cardList = new Section(
-        {
-          items: res,
-          renderer: (cardItem) => {
-            cardList.addItem(renderCard(cardItem));
-          },
-        },
-        ".elements"
-      );
-      cardList.renderItem();
-    });
-  });
 
-
+api.getInitialCards().then((res) => {
+  const cardList = new Section(
+    {
+      items: res,
+      renderer: (cardItem) => {
+        cardList.addItem(renderCard(cardItem));
+      },
+    },
+    ".elements"
+  );
+  cardList.renderItem();
+});
 //fucntion for add new card to server and render on the page
 function addNewCards(inputValues) {
   const newCardTitle = inputValues["inputTitle"];
@@ -193,25 +188,27 @@ editPopupForm.setEventListeners();
 editBtn.addEventListener("click", () => {
   editPopupForm.open();
   onLoading(false, editForm);
-  const { name, job } = userInfo.getUserInfo();
+  const { name, job } = profileData.getUserInfo();
   inputName.value = name;
   inputJob.value = job;
 });
-
 // change profile avatar popup
 const changeProfileAvatar = new PopupWithForm(
   ".avatar",
   (inputValues) => {
     console.log(inputValues)
-    api
-      .updateAvatar(inputValues.avatarLink)
-      .then((res) => {
-        userInfo.setAvatar(res.avatar)
-        changeProfileAvatar.close();
-      })
-      .catch((err) => {
-        console.log(`${err}`);
-      });
+      /
+      api
+        .updateAvatar(inputValues.avatarLink)
+        .then((res) => {
+          console.log(res)
+          userInfo.setAvatar(res.avatar)
+          console.log(userInfo.getUserInfo())
+          changeProfileAvatar.close();
+        })
+        .catch((err) => {
+          console.log(`${err}`);
+        });
 
     onLoading(true, avatarForm);
   }

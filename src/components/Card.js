@@ -22,15 +22,13 @@ export default class Card {
   }
 
   _setEventListeners() {
-    const listItem = this._card
-      .querySelector(".element__delete")
-      .closest(".element");
     //delete button
     this._card
       .querySelector(".element__delete")
       .addEventListener("click", () => {
         this._handleDeleteClick(this);
       });
+
     //like button
     this._card
       .querySelector(".element__icon-img")
@@ -72,7 +70,8 @@ export default class Card {
     //show delete icon if the card was created by the user
     if (this._userId === this._cardItem.owner._id) {
       buttonItem.classList.add("element__delete-active");
-
+    } else {
+      buttonItem.disabled = true;
     }
   }
 
