@@ -1,5 +1,3 @@
-
-
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -59,9 +57,9 @@ export default class Api {
   //update profile picture
   updateAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar })
+      method: "PATCH",
+      body: JSON.stringify({ avatar }),
     }).then(res => this._checkResponse(res));
   }
 

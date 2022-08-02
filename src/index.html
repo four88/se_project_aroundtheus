@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="body">
 
@@ -120,12 +119,10 @@
               <label class="popup__label">
               <input
                 type="url"
-                name="avatarLink"
+                name="avatar"
                 id="avatar-link"
                 class="avatar__input avatar__input_type_link popup__input"
                 placeholder="Your link URL"
-                minlength="1"
-                maxlength="30"
                 required
               />
               <p class="popup__error" id="avatar-link-error"></p>
@@ -148,11 +145,11 @@
           <div class="profile__img-wrap">
           <div class="profile__img-edit"></div>
           <img
-            src = "#"
+            src = ""
             id="image-profile"
             alt="profile img"
            class="profile__img"
-            >
+           >
               
           </div>
           <div class="profile__info">
@@ -192,7 +189,5 @@
       </main>
     </div>
     
-    <!-- script file -->
-    <script defer src="./pages/index.js" type="module"></script>  
   </body>
 </html>

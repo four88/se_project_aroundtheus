@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:flex-start;
+    align-content: flex-start; 
     padding-top: 50px;
     gap: 17px;
     margin-bottom: 68px;

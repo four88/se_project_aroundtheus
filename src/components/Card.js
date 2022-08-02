@@ -5,6 +5,7 @@ export default class Card {
     this._likes = cardItem.likes;
     this._cardItem = cardItem;
     this._userId = userId;
+    this._ownerId = cardItem.owner._id
     this._id = cardItem._id;
     this._cardTemplateSelector = cardTemplateSelector;
     this._handleCardClick = handleCardClick;
@@ -36,12 +37,13 @@ export default class Card {
         const LikeButtonIsActive = this._card
           .querySelector(".element__icon-img")
           .classList.contains("element__icon-img_active");
+
         this._handleLikeClick(
           LikeButtonIsActive,
           this._cardItem._id,
-          this._card.querySelector(".element__like-counter")
-        );
-        e.target.classList.toggle("element__icon-img_active");
+          this._card.querySelector(".element__like-counter"),
+          e
+        )
       });
 
     //image popup
@@ -51,7 +53,7 @@ export default class Card {
           title: this._name,
           link: this._link,
         });
-      });
+      })
   }
 
   //Update card view: delete button, likes number
@@ -61,14 +63,14 @@ export default class Card {
     //likes counter
     this._card.querySelector(".element__like-counter").textContent = this._likes.length;
     this._likes.forEach((card) => {
-      if (this._userId === card.cardId) {
+      if (this._userId === card._id) {
         this._card
           .querySelector(".element__icon-img")
           .classList.toggle("element__icon-img_active");
       }
     });
     //show delete icon if the card was created by the user
-    if (this._userId === this._cardItem.owner._id) {
+    if (this._userId === this._ownerId) {
       buttonItem.classList.add("element__delete-active");
     } else {
       buttonItem.disabled = true;
@@ -92,10 +94,6 @@ export default class Card {
     ).src = this._link;
     this._card.querySelector(".element__title")
       .textContent = this._name;
-
-    // if (this._isOwner) {
-    //   this._buttonItem.classList.remove("card__delete-button_active");
-    // }
 
     this._setEventListeners();
     this._updateCardView();

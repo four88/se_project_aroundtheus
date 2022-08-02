@@ -44,11 +44,11 @@ const api = new Api({
   },
 });
 // decalre userInfo class
-const userInfo = new UserInfo({
-  nameSelector: profileName,
-  jobSelector: profileJob,
-  avatarSelector: profileImage
-})
+const userInfo = new UserInfo(
+  profileName,
+  profileJob,
+  profileImage
+)
 
 
 // show image popup
@@ -56,12 +56,12 @@ const imagePopup = new PopupWithImage(".pic");
 imagePopup.setEventListeners()
 
 // for loading button "Saving..."
-function onLoading(isLoading, form) {
+function onLoading(isLoading, form, text) {
   const submitButton = form.querySelector(".popup__button_save");
   if (isLoading) {
     submitButton.textContent = "Saving...";
   } else {
-    submitButton.textContent = submitButton.textContent;
+    submitButton.textContent = text;
   }
 }
 
@@ -89,10 +89,15 @@ const renderCard = (cardItem) => {
             })
         });
       },
-      handleLikeClick: (LikeButtonIsActive, cardId, likeCounter) => {
+      handleLikeClick: (LikeButtonIsActive, cardId, likeCounter, e) => {
         api.updateLike(LikeButtonIsActive, cardId).then((result) => {
           likeCounter.textContent = result.likes.length;
-        });
+        }).catch((err) => {
+          console.log(`${err}`);
+        })
+          .finally(() => {
+            e.target.classList.toggle("element__icon-img_active");
+          })
       },
     },
     ".element-template",
@@ -108,7 +113,14 @@ const renderCard = (cardItem) => {
 api
   .getUserInfo()
   .then((res) => {
-    userInfo.setUserInfo(res.name, res.about, res.avatar, res._id);
+    userInfo.setUserInfo(
+      {
+        name: res.name,
+        about: res.about,
+        userId: res._id
+      }
+    );
+    userInfo.setAvatar(res.avatar)
   })
   .then(() => {
     api.getInitialCards().then((res) => {
@@ -122,8 +134,11 @@ api
         ".elements"
       );
       cardList.renderItem();
+    }).catch((err) => {
+      console.log(`${err}`);
     });
   });
+
 
 
 //fucntion for add new card to server and render on the page
@@ -137,11 +152,18 @@ function addNewCards(inputValues) {
     link: newCardURL,
   };
 
+  const cardList = new Section(
+    {
+      items: null,
+      renderer: null
+    }
+    , ".elements"
+  )
   // Add new card to the server
   api
     .addNewCard(newCardObject.name, newCardObject.link)
     .then((newCardData) => {
-      document.querySelector(".elements").prepend(renderCard(newCardData));
+      cardList.addItem(renderCard(newCardData));
       addPopupForm.close();
 
     })
@@ -155,7 +177,7 @@ const addPopupForm = new PopupWithForm(
   ".add",
   (inputValues) => {
     addNewCards(inputValues);
-    onLoading(true, addForm)
+    onLoading(true, addForm, "Create")
   }
 );
 
@@ -163,7 +185,7 @@ addPopupForm.setEventListeners();
 //open Add-place modal
 addBtn.addEventListener("click", () => {
   addPopupForm.open();
-  onLoading(false, addForm);
+  onLoading(false, addForm, "Create");
 });
 
 
@@ -177,14 +199,18 @@ const editPopupForm = new PopupWithForm(
       .updateUserInfo(inputValues.inputName, inputValues.inputCareer)
       .then((res) => {
         console.log(res)
-        userInfo.setUserInfo(res.name, res.about, res.avatar);
+        userInfo.setUserInfo({
+          name: res.name,
+          about: res.about,
+          userId: res._id
+        });
 
         editPopupForm.close();
       })
       .catch((err) => {
         console.log(`${err}`);
       });
-    onLoading(true, editForm);
+    onLoading(true, editForm, "Save");
   }
 );
 
@@ -192,7 +218,7 @@ editPopupForm.setEventListeners();
 
 editBtn.addEventListener("click", () => {
   editPopupForm.open();
-  onLoading(false, editForm);
+  onLoading(false, editForm, "Save");
   const { name, job } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = job;
@@ -202,24 +228,24 @@ editBtn.addEventListener("click", () => {
 const changeProfileAvatar = new PopupWithForm(
   ".avatar",
   (inputValues) => {
-    console.log(inputValues)
+    console.log(inputValues.avatar)
     api
-      .updateAvatar(inputValues.avatarLink)
+      .updateAvatar(inputValues.avatar)
       .then((res) => {
+        console.log(res)
         userInfo.setAvatar(res.avatar)
         changeProfileAvatar.close();
       })
       .catch((err) => {
         console.log(`${err}`);
       });
-
-    onLoading(true, avatarForm);
+    onLoading(true, avatarForm, "Save");
   }
 );
 
 updateAvatarButton.addEventListener("click", () => {
   changeProfileAvatar.open();
-  onLoading(false, avatarForm);
+  onLoading(false, avatarForm, "Save");
 });
 
 changeProfileAvatar.setEventListeners();
