@@ -133,6 +133,9 @@ api
     );
     userInfo.setAvatar(res.avatar)
   })
+  .catch((err) => {
+    console.log(`${err}`)
+  })
   .then(() => {
     api.getInitialCards().then((res) => {
       cardList.renderItems(res);
@@ -246,6 +249,7 @@ const changeProfileAvatar = new PopupWithForm(
 
 updateAvatarButton.addEventListener("click", () => {
   changeProfileAvatar.open();
+  changeProfileAvatarValiditor.toggleButtonState();
 });
 
 changeProfileAvatar.setEventListeners();
