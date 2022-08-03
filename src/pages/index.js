@@ -87,17 +87,19 @@ const renderCard = (cardItem) => {
               card.remove();
               confirmDeletePopup.close()
             })
+            .catch((err) => {
+              console.log(`${err}`)
+            })
         });
       },
       handleLikeClick: (LikeButtonIsActive, cardId, likeCounter, e) => {
         api.updateLike(LikeButtonIsActive, cardId).then((result) => {
           likeCounter.textContent = result.likes.length;
+        }).then(() => {
+          renderNewCard.like(e)
         }).catch((err) => {
           console.log(`${err}`);
         })
-          .finally(() => {
-            e.target.classList.toggle("element__icon-img_active");
-          })
       },
     },
     ".element-template",
@@ -110,6 +112,15 @@ const renderCard = (cardItem) => {
 // I have some question my profile picture is not show on the page 
 // i try userInfo.setUserInfo and userInfo.updateAvatar both are working when with out api
 // but when have api is not working. I don't know the reason why this happend. 
+const cardList = new Section(
+  {
+    renderer: (cardItem) => {
+      cardList.addItem(renderCard(cardItem));
+    },
+  },
+  ".elements"
+);
+
 api
   .getUserInfo()
   .then((res) => {
@@ -124,16 +135,7 @@ api
   })
   .then(() => {
     api.getInitialCards().then((res) => {
-      const cardList = new Section(
-        {
-          items: res,
-          renderer: (cardItem) => {
-            cardList.addItem(renderCard(cardItem));
-          },
-        },
-        ".elements"
-      );
-      cardList.renderItem();
+      cardList.renderItems(res);
     }).catch((err) => {
       console.log(`${err}`);
     });
@@ -152,20 +154,16 @@ function addNewCards(inputValues) {
     link: newCardURL,
   };
 
-  const cardList = new Section(
-    {
-      items: null,
-      renderer: null
-    }
-    , ".elements"
-  )
   // Add new card to the server
   api
     .addNewCard(newCardObject.name, newCardObject.link)
     .then((newCardData) => {
-      cardList.addItem(renderCard(newCardData));
+      cardList.renderItem(newCardData);
       addPopupForm.close();
 
+    })
+    .finally(() => {
+      onLoading(false, addForm, "Create");
     })
     .catch((err) => {
       console.log(`${err}`);
@@ -185,7 +183,7 @@ addPopupForm.setEventListeners();
 //open Add-place modal
 addBtn.addEventListener("click", () => {
   addPopupForm.open();
-  onLoading(false, addForm, "Create");
+  addValiditor.toggleButtonState()
 });
 
 
@@ -206,6 +204,8 @@ const editPopupForm = new PopupWithForm(
         });
 
         editPopupForm.close();
+      }).finally(() => {
+        onLoading(false, editForm, "Save");
       })
       .catch((err) => {
         console.log(`${err}`);
@@ -218,7 +218,6 @@ editPopupForm.setEventListeners();
 
 editBtn.addEventListener("click", () => {
   editPopupForm.open();
-  onLoading(false, editForm, "Save");
   const { name, job } = userInfo.getUserInfo();
   inputName.value = name;
   inputJob.value = job;
@@ -235,6 +234,8 @@ const changeProfileAvatar = new PopupWithForm(
         console.log(res)
         userInfo.setAvatar(res.avatar)
         changeProfileAvatar.close();
+      }).finally(() => {
+        onLoading(false, avatarForm, "Save");
       })
       .catch((err) => {
         console.log(`${err}`);
@@ -245,7 +246,6 @@ const changeProfileAvatar = new PopupWithForm(
 
 updateAvatarButton.addEventListener("click", () => {
   changeProfileAvatar.open();
-  onLoading(false, avatarForm, "Save");
 });
 
 changeProfileAvatar.setEventListeners();

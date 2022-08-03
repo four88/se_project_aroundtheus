@@ -31,23 +31,21 @@ export default class Card {
       });
 
     //like button
-    this._card
-      .querySelector(".element__icon-img")
+    this._likeButton
       .addEventListener("click", (e) => {
-        const LikeButtonIsActive = this._card
-          .querySelector(".element__icon-img")
+        const LikeButtonIsActive = this._likeButton
           .classList.contains("element__icon-img_active");
 
         this._handleLikeClick(
           LikeButtonIsActive,
           this._cardItem._id,
-          this._card.querySelector(".element__like-counter"),
+          this._likeCounter,
           e
         )
       });
 
     //image popup
-    this._card.querySelector(".element__pic")
+    this._imgCard
       .addEventListener("click", () => {
         this._handleCardClick({
           title: this._name,
@@ -56,16 +54,20 @@ export default class Card {
       })
   }
 
+  // toggle heart icon active use on this._handleLikeClick
+  like(e) {
+    e.target.classList.toggle("element__icon-img_active")
+  }
+
   //Update card view: delete button, likes number
   _updateCardView() {
     const buttonItem = this._card.querySelector(".element__delete");
 
     //likes counter
-    this._card.querySelector(".element__like-counter").textContent = this._likes.length;
+    this._likeCounter.textContent = this._likes.length;
     this._likes.forEach((card) => {
       if (this._userId === card._id) {
-        this._card
-          .querySelector(".element__icon-img")
+        this._likeButton
           .classList.toggle("element__icon-img_active");
       }
     });
@@ -89,11 +91,17 @@ export default class Card {
   generateCard() {
     this._card = this._getCardTemplate();
 
-    this._card.querySelector(
-      ".element__pic"
-    ).src = this._link;
+    this._imgCard = this._card.querySelector(".element__pic")
+    this._imgCard.src = this._link;
+    this._imgCard.alt = `Photo of ${this._name}`
     this._card.querySelector(".element__title")
       .textContent = this._name;
+
+    // like button  
+    this._likeButton = this._card.querySelector('.element__icon-img')
+
+    // like counter
+    this._likeCounter = this._card.querySelector(".element__like-counter")
 
     this._setEventListeners();
     this._updateCardView();
